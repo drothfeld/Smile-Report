@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B09C193B20D95C0200A7CE9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C193A20D95C0200A7CE9C /* AppDelegate.swift */; };
-		B09C193D20D95C0200A7CE9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C193C20D95C0200A7CE9C /* ViewController.swift */; };
+		B09C193D20D95C0200A7CE9C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C193C20D95C0200A7CE9C /* HomeViewController.swift */; };
 		B09C194020D95C0200A7CE9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09C193E20D95C0200A7CE9C /* Main.storyboard */; };
 		B09C194220D95C0300A7CE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B09C194120D95C0300A7CE9C /* Assets.xcassets */; };
 		B09C194520D95C0300A7CE9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09C194320D95C0300A7CE9C /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		B09C193720D95C0200A7CE9C /* Smile Report.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smile Report.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09C193A20D95C0200A7CE9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B09C193C20D95C0200A7CE9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B09C193C20D95C0200A7CE9C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B09C193F20D95C0200A7CE9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B09C194120D95C0300A7CE9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B09C194420D95C0300A7CE9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +35,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B05D469920DAC36C00FE05D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B05D469A20DAC37700FE05D9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B09C193C20D95C0200A7CE9C /* HomeViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B05D469B20DAC38400FE05D9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B09C193E20D95C0200A7CE9C /* Main.storyboard */,
+				B09C194320D95C0300A7CE9C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B05D469C20DAC39900FE05D9 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		B09C192E20D95C0200A7CE9C = {
 			isa = PBXGroup;
 			children = (
@@ -54,11 +85,12 @@
 		B09C193920D95C0200A7CE9C /* Smile Report */ = {
 			isa = PBXGroup;
 			children = (
-				B09C193A20D95C0200A7CE9C /* AppDelegate.swift */,
-				B09C193C20D95C0200A7CE9C /* ViewController.swift */,
-				B09C193E20D95C0200A7CE9C /* Main.storyboard */,
+				B05D469B20DAC38400FE05D9 /* Storyboards */,
+				B05D469A20DAC37700FE05D9 /* View Controllers */,
+				B05D469920DAC36C00FE05D9 /* Models */,
+				B05D469C20DAC39900FE05D9 /* Assets */,
 				B09C194120D95C0300A7CE9C /* Assets.xcassets */,
-				B09C194320D95C0300A7CE9C /* LaunchScreen.storyboard */,
+				B09C193A20D95C0200A7CE9C /* AppDelegate.swift */,
 				B09C194620D95C0300A7CE9C /* Info.plist */,
 			);
 			path = "Smile Report";
@@ -135,7 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B09C193D20D95C0200A7CE9C /* ViewController.swift in Sources */,
+				B09C193D20D95C0200A7CE9C /* HomeViewController.swift in Sources */,
 				B09C193B20D95C0200A7CE9C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

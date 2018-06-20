@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  Smile Report
 //
 //  Created by Dylan Rothfeld on 6/19/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,9 +16,9 @@ class ViewController: UIViewController {
     }
 
     // Hides status bar
-    override var prefersStatusBarHidden: Bool{
-        return true
-    }
+//    override var prefersStatusBarHidden: Bool{
+//        return true
+//    }
     
     // userDefaults custom data type storage: https:\\stackoverflow.com/questions/37980432/swift-3-saving-and-retrieving-custom-object-from-userdefaults
 
