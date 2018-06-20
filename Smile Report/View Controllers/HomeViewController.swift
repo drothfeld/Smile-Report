@@ -19,12 +19,9 @@ class HomeViewController: UIViewController {
     }
     
     func interfaceSetup() {
+        // Changing status bar to white text
+        UIApplication.shared.statusBarStyle = .lightContent
     }
-
-    // Hides status bar
-//    override var prefersStatusBarHidden: Bool{
-//        return true
-//    }
     
     // userDefaults custom data type storage: https:\\stackoverflow.com/questions/37980432/swift-3-saving-and-retrieving-custom-object-from-userdefaults
     // Hooking up page control with scroll view: https:\\www.youtube.com/watch?v=X2Wr4TtMG6Q
