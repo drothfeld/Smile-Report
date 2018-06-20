@@ -21,15 +21,35 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="ERN-jO-Z1f" userLabel="Background Image">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZT-fn-gL6" userLabel="Graph Control Scroll View">
+                                <rect key="frame" x="16" y="69" width="343" height="250"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="q2Z-bD-hzk">
+                                <rect key="frame" x="167" y="327" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="aqb-8f-SR1"/>
+                                    <constraint firstAttribute="height" constant="40" id="lfL-a6-7Mp"/>
+                                </constraints>
+                            </pageControl>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ERN-jO-Z1f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1zo-qw-tCH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ERN-jO-Z1f" secondAttribute="trailing" id="86V-7i-NRc"/>
+                            <constraint firstItem="q2Z-bD-hzk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-59" id="DMF-kh-hC3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0ZT-fn-gL6" secondAttribute="bottom" constant="459" id="TQd-zb-xpV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ERN-jO-Z1f" secondAttribute="bottom" constant="-34" id="bOb-8I-cIp"/>
+                            <constraint firstItem="q2Z-bD-hzk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cCI-QM-QkS"/>
                             <constraint firstItem="ERN-jO-Z1f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hG5-mG-rXH"/>
+                            <constraint firstItem="0ZT-fn-gL6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qiF-qn-0Xw"/>
+                            <constraint firstItem="0ZT-fn-gL6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="sYm-jZ-cdH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0ZT-fn-gL6" secondAttribute="trailing" constant="16" id="t3u-BI-mwS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="GraphScrollView" destination="0ZT-fn-gL6" id="hgc-58-9v8"/>
+                        <outlet property="PageControl" destination="q2Z-bD-hzk" id="92K-KA-16l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
