@@ -28,11 +28,13 @@
 		B05D46C520DACE3300FE05D9 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B05D46B120DACE3300FE05D9 /* Lato-Medium.ttf */; };
 		B05D46C620DACE3300FE05D9 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B05D46B220DACE3300FE05D9 /* Lato-ThinItalic.ttf */; };
 		B05D46C920DACE9600FE05D9 /* home-background.png in Resources */ = {isa = PBXBuildFile; fileRef = B05D46C820DACE9600FE05D9 /* home-background.png */; };
+		B05D46CD20DAE81200FE05D9 /* how-was-your-day-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B05D46CC20DAE81200FE05D9 /* how-was-your-day-button.png */; };
 		B09C193B20D95C0200A7CE9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C193A20D95C0200A7CE9C /* AppDelegate.swift */; };
 		B09C193D20D95C0200A7CE9C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C193C20D95C0200A7CE9C /* HomeViewController.swift */; };
 		B09C194020D95C0200A7CE9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09C193E20D95C0200A7CE9C /* Main.storyboard */; };
 		B09C194220D95C0300A7CE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B09C194120D95C0300A7CE9C /* Assets.xcassets */; };
 		B09C194520D95C0300A7CE9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09C194320D95C0300A7CE9C /* LaunchScreen.storyboard */; };
+		B0D9E29120DC3BB20013FDB7 /* slightly-smiling-face_1f642.png in Resources */ = {isa = PBXBuildFile; fileRef = B0D9E29020DC3BB20013FDB7 /* slightly-smiling-face_1f642.png */; };
 		B8CCA26CC5C03D749534C328 /* Pods_Smile_Report.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8854CC7D799A8CE734FDEDD4 /* Pods_Smile_Report.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,7 @@
 		B05D46B120DACE3300FE05D9 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		B05D46B220DACE3300FE05D9 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		B05D46C820DACE9600FE05D9 /* home-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-background.png"; sourceTree = "<group>"; };
+		B05D46CC20DAE81200FE05D9 /* how-was-your-day-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "how-was-your-day-button.png"; sourceTree = "<group>"; };
 		B09C193720D95C0200A7CE9C /* Smile Report.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smile Report.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09C193A20D95C0200A7CE9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B09C193C20D95C0200A7CE9C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		B09C194120D95C0300A7CE9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B09C194420D95C0300A7CE9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B09C194620D95C0300A7CE9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0D9E29020DC3BB20013FDB7 /* slightly-smiling-face_1f642.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slightly-smiling-face_1f642.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +174,9 @@
 		B05D46C720DACE3B00FE05D9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B0D9E28F20DC3B930013FDB7 /* Apple Emoji Faces */,
 				B05D46C820DACE9600FE05D9 /* home-background.png */,
+				B05D46CC20DAE81200FE05D9 /* how-was-your-day-button.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -205,6 +211,14 @@
 				B09C194620D95C0300A7CE9C /* Info.plist */,
 			);
 			path = "Smile Report";
+			sourceTree = "<group>";
+		};
+		B0D9E28F20DC3B930013FDB7 /* Apple Emoji Faces */ = {
+			isa = PBXGroup;
+			children = (
+				B0D9E29020DC3BB20013FDB7 /* slightly-smiling-face_1f642.png */,
+			);
+			path = "Apple Emoji Faces";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D9E29120DC3BB20013FDB7 /* slightly-smiling-face_1f642.png in Resources */,
 				B05D46C020DACE3300FE05D9 /* OFL.txt in Resources */,
 				B05D46BC20DACE3300FE05D9 /* Lato-Hairline.ttf in Resources */,
 				B05D46B420DACE3300FE05D9 /* Lato-Italic.ttf in Resources */,
@@ -289,6 +304,7 @@
 				B09C194220D95C0300A7CE9C /* Assets.xcassets in Resources */,
 				B05D46C220DACE3300FE05D9 /* README.txt in Resources */,
 				B09C194020D95C0200A7CE9C /* Main.storyboard in Resources */,
+				B05D46CD20DAE81200FE05D9 /* how-was-your-day-button.png in Resources */,
 				B05D46B720DACE3300FE05D9 /* Lato-Bold.ttf in Resources */,
 				B05D46C320DACE3300FE05D9 /* Lato-BoldItalic.ttf in Resources */,
 			);
