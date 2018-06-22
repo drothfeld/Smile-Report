@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,47 +55,53 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xp5-xt-6eI" userLabel="Positive Days View">
-                                <rect key="frame" x="195" y="389" width="153" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xp5-xt-6eI" userLabel="Positive Days View">
+                                <rect key="frame" x="196" y="389" width="149" height="75"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7b-eY-Mcg" userLabel="Positive Days Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="68" height="75"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7b-eY-Mcg" userLabel="Positive Days Label">
+                                        <rect key="frame" x="8" y="18" width="56" height="38"/>
                                         <string key="text">Positive 
 days</string>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" red="0.76774428139999995" green="0.76576044600000004" blue="0.76972811669999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="72%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgm-HO-vKn" userLabel="Positive Days Value Label">
-                                        <rect key="frame" x="66" y="0.0" width="87" height="75"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="72%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgm-HO-vKn" userLabel="Positive Days Value Label">
+                                        <rect key="frame" x="72" y="18" width="69" height="38"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="35"/>
                                         <color key="textColor" red="0.56862745100000001" green="0.82352941180000006" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Dgm-HO-vKn" firstAttribute="leading" secondItem="g7b-eY-Mcg" secondAttribute="trailing" constant="8" symbolic="YES" id="3HW-PN-dji"/>
+                                    <constraint firstItem="g7b-eY-Mcg" firstAttribute="baseline" secondItem="Dgm-HO-vKn" secondAttribute="firstBaseline" id="Ecg-0X-UUA"/>
+                                    <constraint firstAttribute="height" constant="75" id="TIj-QL-808"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dgm-HO-vKn" secondAttribute="trailing" constant="8" id="b7P-Db-oPO"/>
+                                    <constraint firstItem="g7b-eY-Mcg" firstAttribute="bottom" secondItem="Dgm-HO-vKn" secondAttribute="bottom" id="hqm-Y8-c8f"/>
+                                    <constraint firstItem="g7b-eY-Mcg" firstAttribute="centerY" secondItem="Xp5-xt-6eI" secondAttribute="centerY" id="iFD-Zh-XQ9"/>
+                                    <constraint firstItem="g7b-eY-Mcg" firstAttribute="top" secondItem="Dgm-HO-vKn" secondAttribute="top" id="s15-t9-7jc"/>
+                                    <constraint firstItem="g7b-eY-Mcg" firstAttribute="leading" secondItem="Xp5-xt-6eI" secondAttribute="leadingMargin" id="vAS-e1-ASJ"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r07-V0-TXY" userLabel="Data Points Entered View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r07-V0-TXY" userLabel="Data Points Entered View">
                                 <rect key="frame" x="195" y="480" width="150" height="129"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Entered" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rme-bR-WZg" userLabel="Entered Label">
-                                        <rect key="frame" x="0.0" y="18" width="153" height="20"/>
+                                        <rect key="frame" x="0.0" y="18" width="153" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" red="0.76774428135852779" green="0.76576044600618021" blue="0.76972811671087538" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="data points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fa-Ug-QfO" userLabel="Data Points Label">
-                                        <rect key="frame" x="0.0" y="90" width="153" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" text="data points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fa-Ug-QfO" userLabel="Data Points Label">
+                                        <rect key="frame" x="0.0" y="88" width="153" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" red="0.76774428139999995" green="0.76576044600000004" blue="0.76972811669999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -108,39 +116,51 @@ days</string>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="9bh-fa-BCt"/>
+                                    <constraint firstAttribute="height" constant="129" id="tSm-ug-het"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pma-ps-QAY" userLabel="Todays Date View">
-                                <rect key="frame" x="28" y="436" width="150" height="121"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pma-ps-QAY" userLabel="Todays Date View">
+                                <rect key="frame" x="28" y="436" width="151" height="121"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Today is" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiD-Ei-Tpk" userLabel="Today is Label">
-                                        <rect key="frame" x="0.0" y="19" width="150" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today is" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiD-Ei-Tpk" userLabel="Today is Label">
+                                        <rect key="frame" x="49.333333333333329" y="19" width="52.666666666666671" height="18"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" red="0.76774428139999995" green="0.76576044600000004" blue="0.76972811669999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBP-g9-laT" userLabel="Today Value Label">
-                                        <rect key="frame" x="0.0" y="36" width="150" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBP-g9-laT" userLabel="Today Value Label">
+                                        <rect key="frame" x="12" y="36" width="126" height="44"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="35"/>
                                         <color key="textColor" red="0.56862745100000001" green="0.82352941180000006" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01/21/2018" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMK-nZ-EBa" userLabel="Date Label">
-                                        <rect key="frame" x="0.0" y="82" width="150" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/21/2018" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMK-nZ-EBa" userLabel="Date Label">
+                                        <rect key="frame" x="33.999999999999993" y="81" width="83.333333333333314" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Np1-0e-NtC"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" red="0.76774428139999995" green="0.76576044600000004" blue="0.76972811669999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="DMK-nZ-EBa" firstAttribute="top" secondItem="OBP-g9-laT" secondAttribute="bottom" constant="1" id="L03-jz-DLA"/>
+                                    <constraint firstItem="DMK-nZ-EBa" firstAttribute="centerX" secondItem="uiD-Ei-Tpk" secondAttribute="centerX" id="TwG-jE-JDC"/>
+                                    <constraint firstItem="uiD-Ei-Tpk" firstAttribute="centerX" secondItem="Pma-ps-QAY" secondAttribute="centerX" id="Uei-Ao-0r8"/>
+                                    <constraint firstItem="uiD-Ei-Tpk" firstAttribute="top" secondItem="Pma-ps-QAY" secondAttribute="top" constant="19" id="bGC-gl-VxC"/>
+                                    <constraint firstItem="OBP-g9-laT" firstAttribute="top" secondItem="Pma-ps-QAY" secondAttribute="top" constant="36" id="gNF-Pk-prZ"/>
+                                    <constraint firstItem="OBP-g9-laT" firstAttribute="centerX" secondItem="uiD-Ei-Tpk" secondAttribute="centerX" id="kM6-v7-m46"/>
+                                    <constraint firstAttribute="bottom" secondItem="DMK-nZ-EBa" secondAttribute="bottom" constant="20" id="rd8-ss-8d1"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="0"/>
@@ -152,19 +172,28 @@ days</string>
                             <constraint firstItem="ERN-jO-Z1f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1zo-qw-tCH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ERN-jO-Z1f" secondAttribute="trailing" id="86V-7i-NRc"/>
                             <constraint firstItem="rAh-T9-JeJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Avr-5G-8sf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xp5-xt-6eI" secondAttribute="trailing" constant="30" id="CGF-Un-haY"/>
                             <constraint firstItem="q2Z-bD-hzk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-59" id="DMF-kh-hC3"/>
+                            <constraint firstItem="r07-V0-TXY" firstAttribute="top" secondItem="Xp5-xt-6eI" secondAttribute="bottom" constant="16" id="GTS-Rf-ieG"/>
                             <constraint firstItem="77i-Fu-tnV" firstAttribute="top" secondItem="rAh-T9-JeJ" secondAttribute="bottom" constant="22" id="L1l-xr-U58"/>
                             <constraint firstItem="77i-Fu-tnV" firstAttribute="centerX" secondItem="q2Z-bD-hzk" secondAttribute="centerX" id="LNE-fJ-Pow"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xp5-xt-6eI" secondAttribute="trailing" constant="30" id="N38-UH-YZq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0ZT-fn-gL6" secondAttribute="bottom" constant="459" id="TQd-zb-xpV"/>
+                            <constraint firstItem="r07-V0-TXY" firstAttribute="leading" secondItem="Pma-ps-QAY" secondAttribute="trailing" constant="16" id="UNq-h4-t9J"/>
+                            <constraint firstItem="rAh-T9-JeJ" firstAttribute="top" secondItem="Pma-ps-QAY" secondAttribute="bottom" constant="89" id="bIB-vf-Nlu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ERN-jO-Z1f" secondAttribute="bottom" constant="-34" id="bOb-8I-cIp"/>
                             <constraint firstItem="q2Z-bD-hzk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cCI-QM-QkS"/>
                             <constraint firstItem="rAh-T9-JeJ" firstAttribute="top" secondItem="q2Z-bD-hzk" secondAttribute="bottom" constant="279" id="cHa-EY-DKG"/>
                             <constraint firstItem="ERN-jO-Z1f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hG5-mG-rXH"/>
+                            <constraint firstItem="Pma-ps-QAY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="i91-bJ-yvu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rAh-T9-JeJ" secondAttribute="trailing" constant="16" id="i9w-HS-wOE"/>
+                            <constraint firstItem="Pma-ps-QAY" firstAttribute="top" secondItem="q2Z-bD-hzk" secondAttribute="bottom" constant="69" id="mRk-sS-oaQ"/>
+                            <constraint firstItem="rAh-T9-JeJ" firstAttribute="top" secondItem="r07-V0-TXY" secondAttribute="bottom" constant="37" id="qeU-H7-X8O"/>
                             <constraint firstItem="0ZT-fn-gL6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qiF-qn-0Xw"/>
                             <constraint firstItem="0ZT-fn-gL6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="sYm-jZ-cdH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0ZT-fn-gL6" secondAttribute="trailing" constant="16" id="t3u-BI-mwS"/>
                             <constraint firstItem="77i-Fu-tnV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-5" id="uPe-FO-cMf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r07-V0-TXY" secondAttribute="trailing" constant="30" id="yNo-rs-dRU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
