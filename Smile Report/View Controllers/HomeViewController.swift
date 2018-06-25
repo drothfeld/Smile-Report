@@ -12,6 +12,9 @@ class HomeViewController: UIViewController {
     // Storyboard Outlets
     @IBOutlet weak var PageControl: UIPageControl!
     @IBOutlet weak var GraphScrollView: UIScrollView!
+    
+    // Controller Values
+    var dayEntryData: [DayEntry] = mockData
 
     override func viewDidLoad() {
         super.viewDidLoad()
