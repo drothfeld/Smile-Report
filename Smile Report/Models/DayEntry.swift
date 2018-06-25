@@ -29,4 +29,5 @@ class DayEntry: NSObject, NSCoding {
         coder.encode(timestamp, forKey: "timestamp")
         coder.encode(smileEntry, forKey: "asmileEntryge")
     }
+    
 }
