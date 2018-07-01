@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var GraphScrollView: UIScrollView!
     @IBOutlet weak var CurrentWeekdayNameLabel: UILabel!
     @IBOutlet weak var CurrentDateLabel: UILabel!
+    @IBOutlet weak var PositiveDaysValueLabel: UILabel!
+    @IBOutlet weak var TotalDataPointsValueLabel: UILabel!
     
     // Controller Values
     var dayEntryData: [DayEntry] = mockData
@@ -28,6 +30,28 @@ class HomeViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
         // Update summary panels
         setDate()
+        setDataStatistics()
+    }
+    
+    // Sets the positive days and total entries entered panel cards
+    func setDataStatistics() {
+        var totalEntries: Double = 0.00
+        var positiveEntries: Double = 0.00
+        // Check for positive days days
+        for dataEntry in dayEntryData {
+            totalEntries += 1.00
+            if (dataEntry.smileEntry.value == smile_happy.value || dataEntry.smileEntry.value == smile_love.value || dataEntry.smileEntry.value == smile_excitement.value) {
+                positiveEntries += 1.00
+            }
+        }
+        let percentageHappy: Int = Int((positiveEntries/totalEntries) * 100)
+        // Change label values
+        if percentageHappy < 10 {
+            PositiveDaysValueLabel.text = "0" + String(percentageHappy) + "%"
+        } else {
+            PositiveDaysValueLabel.text = String(percentageHappy) + "%"
+        }
+        TotalDataPointsValueLabel.text = String(Int(totalEntries))
     }
     
     // Sets the current date panel to the actual current date

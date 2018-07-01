@@ -56,10 +56,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xp5-xt-6eI" userLabel="Positive Days View">
-                                <rect key="frame" x="196" y="389" width="149" height="75"/>
+                                <rect key="frame" x="192" y="389" width="153" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7b-eY-Mcg" userLabel="Positive Days Label">
-                                        <rect key="frame" x="8" y="18" width="56" height="38"/>
+                                        <rect key="frame" x="8" y="19.333333333333311" width="57" height="35.666666666666657"/>
                                         <string key="text">Positive 
 days</string>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
@@ -67,8 +67,8 @@ days</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="72%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgm-HO-vKn" userLabel="Positive Days Value Label">
-                                        <rect key="frame" x="72" y="18" width="69" height="38"/>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="35"/>
+                                        <rect key="frame" x="73" y="19.333333333333311" width="72" height="35.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="34"/>
                                         <color key="textColor" red="0.56862745100000001" green="0.82352941180000006" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -130,19 +130,19 @@ days</string>
                                 <rect key="frame" x="28" y="436" width="151" height="121"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today is" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiD-Ei-Tpk" userLabel="Today is Label">
-                                        <rect key="frame" x="49.333333333333329" y="19" width="52.666666666666671" height="18"/>
+                                        <rect key="frame" x="48" y="19" width="55.333333333333343" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" red="0.76774428139999995" green="0.76576044600000004" blue="0.76972811669999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBP-g9-laT" userLabel="Today Value Label">
-                                        <rect key="frame" x="12" y="36" width="126" height="44"/>
+                                        <rect key="frame" x="11.333333333333336" y="36" width="127.33333333333331" height="44"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="35"/>
                                         <color key="textColor" red="0.56862745100000001" green="0.82352941180000006" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/21/2018" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMK-nZ-EBa" userLabel="Date Label">
-                                        <rect key="frame" x="33.999999999999993" y="81" width="83.333333333333314" height="20"/>
+                                        <rect key="frame" x="37.333333333333329" y="81" width="77" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Np1-0e-NtC"/>
                                         </constraints>
@@ -202,6 +202,8 @@ days</string>
                         <outlet property="CurrentWeekdayNameLabel" destination="OBP-g9-laT" id="1Ah-wi-gGn"/>
                         <outlet property="GraphScrollView" destination="0ZT-fn-gL6" id="hgc-58-9v8"/>
                         <outlet property="PageControl" destination="q2Z-bD-hzk" id="92K-KA-16l"/>
+                        <outlet property="PositiveDaysValueLabel" destination="Dgm-HO-vKn" id="Czt-dY-Bzh"/>
+                        <outlet property="TotalDataPointsValueLabel" destination="NWF-yx-gK4" id="cUk-og-qgq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
