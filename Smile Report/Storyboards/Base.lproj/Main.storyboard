@@ -198,6 +198,8 @@ days</string>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="CurrentDateLabel" destination="DMK-nZ-EBa" id="IRw-sC-jEn"/>
+                        <outlet property="CurrentWeekdayNameLabel" destination="OBP-g9-laT" id="1Ah-wi-gGn"/>
                         <outlet property="GraphScrollView" destination="0ZT-fn-gL6" id="hgc-58-9v8"/>
                         <outlet property="PageControl" destination="q2Z-bD-hzk" id="92K-KA-16l"/>
                     </connections>
