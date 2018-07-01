@@ -203,6 +203,7 @@ days</string>
                         <outlet property="GraphScrollView" destination="0ZT-fn-gL6" id="hgc-58-9v8"/>
                         <outlet property="PageControl" destination="q2Z-bD-hzk" id="92K-KA-16l"/>
                         <outlet property="PositiveDaysValueLabel" destination="Dgm-HO-vKn" id="Czt-dY-Bzh"/>
+                        <outlet property="StatusMessageLabel" destination="rAh-T9-JeJ" id="OcA-Fm-V15"/>
                         <outlet property="TotalDataPointsValueLabel" destination="NWF-yx-gK4" id="cUk-og-qgq"/>
                     </connections>
                 </viewController>

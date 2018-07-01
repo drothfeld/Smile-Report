@@ -16,9 +16,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var CurrentDateLabel: UILabel!
     @IBOutlet weak var PositiveDaysValueLabel: UILabel!
     @IBOutlet weak var TotalDataPointsValueLabel: UILabel!
+    @IBOutlet weak var StatusMessageLabel: UILabel!
     
     // Controller Values
     var dayEntryData: [DayEntry] = mockData
+    var dataPointEnteredToday: Bool = false // This needs to pull its value from somewhere, probably userdefaults
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,16 @@ class HomeViewController: UIViewController {
         // Update summary panels
         setDate()
         setDataStatistics()
+        setStatusMessage()
+    }
+    
+    // Sets the status message based on the current entry state for the day
+    func setStatusMessage() {
+        if (dataPointEnteredToday) {
+            StatusMessageLabel.text = "Completed Daily Entry"
+        } else {
+            StatusMessageLabel.text = "Missing Daily Entry"
+        }
     }
     
     // Sets the positive days and total entries entered panel cards
