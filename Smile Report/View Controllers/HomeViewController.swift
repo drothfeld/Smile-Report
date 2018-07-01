@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class HomeViewController: UIViewController {
     // Storyboard Outlets
@@ -34,6 +35,32 @@ class HomeViewController: UIViewController {
         setDate()
         setDataStatistics()
         setStatusMessage()
+        dailyNotificationRequester()
+    }
+    
+    // Daily notification requester
+    func dailyNotificationRequester() {
+        // timeInterval is in seconds, so 60*60*12*3 = 3 days, set repeats to true if you want to repeat the trigger
+        let requestTrigger = UNTimeIntervalNotificationTrigger(timeInterval: (60*60*12*1), repeats: true)
+        
+        let requestContent = UNMutableNotificationContent()
+        requestContent.title = "Daily Entry"
+        //requestContent.subtitle = "Subtitle"
+        requestContent.body = "How is your day going? Don't forget to input your smile entry for the day!"
+        requestContent.badge = 1
+        requestContent.sound = UNNotificationSound.default()
+        
+        // Request the notification
+        let request = UNNotificationRequest(identifier: "Smile Report", content: requestContent, trigger: requestTrigger)
+            
+            // Post the notification
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    NSLog(error as! String)
+                } else {
+                    // posted successfully, do something like tell the user that notification was posted
+                }
+            }
     }
     
     // Sets the status message based on the current entry state for the day
