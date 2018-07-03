@@ -38,8 +38,8 @@
                                     <constraint firstAttribute="height" constant="40" id="lfL-a6-7Mp"/>
                                 </constraints>
                             </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZT-fn-gL6" userLabel="Graph Control Scroll View">
-                                <rect key="frame" x="16" y="69" width="343" height="250"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZT-fn-gL6" userLabel="Graph Control Scroll View">
+                                <rect key="frame" x="0.0" y="69" width="375" height="250"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77i-Fu-tnV" userLabel="Add Data Point Button">
                                 <rect key="frame" x="150" y="698" width="75" height="75"/>
@@ -56,10 +56,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xp5-xt-6eI" userLabel="Positive Days View">
-                                <rect key="frame" x="192" y="389" width="153" height="75"/>
+                                <rect key="frame" x="198" y="389" width="147" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7b-eY-Mcg" userLabel="Positive Days Label">
-                                        <rect key="frame" x="8" y="19.333333333333311" width="57" height="35.666666666666657"/>
+                                        <rect key="frame" x="8" y="19" width="56" height="37"/>
                                         <string key="text">Positive 
 days</string>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
@@ -67,7 +67,7 @@ days</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="72%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgm-HO-vKn" userLabel="Positive Days Value Label">
-                                        <rect key="frame" x="73" y="19.333333333333311" width="72" height="35.666666666666657"/>
+                                        <rect key="frame" x="72" y="19" width="67" height="37"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="34"/>
                                         <color key="textColor" red="0.56862745100000001" green="0.82352941180000006" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -130,19 +130,19 @@ days</string>
                                 <rect key="frame" x="28" y="436" width="151" height="121"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today is" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiD-Ei-Tpk" userLabel="Today is Label">
-                                        <rect key="frame" x="48" y="19" width="55.333333333333343" height="17.666666666666671"/>
+                                        <rect key="frame" x="49.333333333333329" y="19" width="52.666666666666671" height="18"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" red="0.76774428139999995" green="0.76576044600000004" blue="0.76972811669999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBP-g9-laT" userLabel="Today Value Label">
-                                        <rect key="frame" x="11.333333333333336" y="36" width="127.33333333333331" height="44"/>
+                                        <rect key="frame" x="12" y="36" width="126" height="44"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="35"/>
                                         <color key="textColor" red="0.56862745100000001" green="0.82352941180000006" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/21/2018" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMK-nZ-EBa" userLabel="Date Label">
-                                        <rect key="frame" x="37.333333333333329" y="81" width="77" height="20"/>
+                                        <rect key="frame" x="33.999999999999993" y="81" width="83.333333333333314" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Np1-0e-NtC"/>
                                         </constraints>
@@ -170,28 +170,34 @@ days</string>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ERN-jO-Z1f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1zo-qw-tCH"/>
+                            <constraint firstItem="q2Z-bD-hzk" firstAttribute="top" secondItem="0ZT-fn-gL6" secondAttribute="bottom" constant="8" id="7it-lc-4QQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ERN-jO-Z1f" secondAttribute="trailing" id="86V-7i-NRc"/>
                             <constraint firstItem="rAh-T9-JeJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Avr-5G-8sf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xp5-xt-6eI" secondAttribute="trailing" constant="30" id="CGF-Un-haY"/>
                             <constraint firstItem="q2Z-bD-hzk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-59" id="DMF-kh-hC3"/>
                             <constraint firstItem="r07-V0-TXY" firstAttribute="top" secondItem="Xp5-xt-6eI" secondAttribute="bottom" constant="16" id="GTS-Rf-ieG"/>
+                            <constraint firstItem="0ZT-fn-gL6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HST-c2-Ngh"/>
                             <constraint firstItem="77i-Fu-tnV" firstAttribute="top" secondItem="rAh-T9-JeJ" secondAttribute="bottom" constant="22" id="L1l-xr-U58"/>
                             <constraint firstItem="77i-Fu-tnV" firstAttribute="centerX" secondItem="q2Z-bD-hzk" secondAttribute="centerX" id="LNE-fJ-Pow"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xp5-xt-6eI" secondAttribute="trailing" constant="30" id="N38-UH-YZq"/>
+                            <constraint firstItem="0ZT-fn-gL6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="T1f-4J-4rq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0ZT-fn-gL6" secondAttribute="bottom" constant="459" id="TQd-zb-xpV"/>
                             <constraint firstItem="r07-V0-TXY" firstAttribute="leading" secondItem="Pma-ps-QAY" secondAttribute="trailing" constant="16" id="UNq-h4-t9J"/>
                             <constraint firstItem="rAh-T9-JeJ" firstAttribute="top" secondItem="Pma-ps-QAY" secondAttribute="bottom" constant="89" id="bIB-vf-Nlu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ERN-jO-Z1f" secondAttribute="bottom" constant="-34" id="bOb-8I-cIp"/>
                             <constraint firstItem="q2Z-bD-hzk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cCI-QM-QkS"/>
                             <constraint firstItem="rAh-T9-JeJ" firstAttribute="top" secondItem="q2Z-bD-hzk" secondAttribute="bottom" constant="279" id="cHa-EY-DKG"/>
+                            <constraint firstItem="0ZT-fn-gL6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fT2-B2-y7w"/>
                             <constraint firstItem="ERN-jO-Z1f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hG5-mG-rXH"/>
                             <constraint firstItem="Pma-ps-QAY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="i91-bJ-yvu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rAh-T9-JeJ" secondAttribute="trailing" constant="16" id="i9w-HS-wOE"/>
                             <constraint firstItem="Pma-ps-QAY" firstAttribute="top" secondItem="q2Z-bD-hzk" secondAttribute="bottom" constant="69" id="mRk-sS-oaQ"/>
+                            <constraint firstItem="0ZT-fn-gL6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mss-lh-hJQ"/>
                             <constraint firstItem="rAh-T9-JeJ" firstAttribute="top" secondItem="r07-V0-TXY" secondAttribute="bottom" constant="37" id="qeU-H7-X8O"/>
-                            <constraint firstItem="0ZT-fn-gL6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qiF-qn-0Xw"/>
+                            <constraint firstItem="0ZT-fn-gL6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qiF-qn-0Xw"/>
+                            <constraint firstItem="0ZT-fn-gL6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="rpa-PP-m3z"/>
                             <constraint firstItem="0ZT-fn-gL6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="sYm-jZ-cdH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0ZT-fn-gL6" secondAttribute="trailing" constant="16" id="t3u-BI-mwS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0ZT-fn-gL6" secondAttribute="trailing" id="t3u-BI-mwS"/>
                             <constraint firstItem="77i-Fu-tnV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-5" id="uPe-FO-cMf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r07-V0-TXY" secondAttribute="trailing" constant="30" id="yNo-rs-dRU"/>
                         </constraints>

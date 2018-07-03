@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIScrollViewDelegate {
     // Storyboard Outlets
     @IBOutlet weak var PageControl: UIPageControl!
     @IBOutlet weak var GraphScrollView: UIScrollView!
@@ -22,6 +22,8 @@ class HomeViewController: UIViewController {
     // Controller Values
     var dayEntryData: [DayEntry] = mockData
     var dataPointEnteredToday: Bool = false // This needs to pull its value from somewhere, probably userdefaults
+    var frame = CGRect(x:0, y:0, width: 0, height: 0)
+    let numberOfGraphs = 3
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,52 @@ class HomeViewController: UIViewController {
         setDate()
         setDataStatistics()
         setStatusMessage()
+        setupGraphScrollControl()
         dailyNotificationRequester()
+    }
+    
+    // Setup graph scroll views to page controller
+    func setupGraphScrollControl() {
+        // Setting default page control values
+        self.PageControl.numberOfPages = 3
+        self.PageControl.currentPage = 0
+        
+//        self.PageControl.tintColor = UIColor.red
+//        self.PageControl.pageIndicatorTintColor = UIColor.black
+//        self.PageControl.currentPageIndicatorTintColor = UIColor.green
+        
+        // Setting default scroll view values
+        for index in 0..<numberOfGraphs {
+            frame.origin.x = GraphScrollView.frame.size.width * CGFloat(index)
+            frame.size = GraphScrollView.frame.size
+            let graphView = UIView(frame: frame)
+            // Creating graphs for each view
+            switch index {
+                // TODO:
+                // Create graph A
+                case 0:
+                    graphView.backgroundColor = UIColor.red
+                // TODO:
+                // Create graph B
+                case 1:
+                    graphView.backgroundColor = UIColor.black
+                // TODO:
+                // Create graph C
+                case 2:
+                    graphView.backgroundColor = UIColor.green
+                default:
+                    NSLog("Failed to generate graph, index out of bounds of expected values. Try updating 'numberOfGraphs'")
+            }
+            self.GraphScrollView.addSubview(graphView)
+        }
+        GraphScrollView.contentSize = CGSize(width: (GraphScrollView.frame.size.width * CGFloat(numberOfGraphs)), height: GraphScrollView.frame.size.height)
+        GraphScrollView.delegate = self
+    }
+    
+    // Keeps track of current scroll view focus on deceleration
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = GraphScrollView.contentOffset.x / GraphScrollView.frame.size.width
+        PageControl.currentPage = Int(pageNumber)
     }
     
     // Daily notification requester
@@ -118,7 +165,7 @@ class HomeViewController: UIViewController {
     }
     
     // userDefaults custom data type storage: https:\\stackoverflow.com/questions/37980432/swift-3-saving-and-retrieving-custom-object-from-userdefaults
-    // Hooking up page control with scroll view: https:\\www.youtube.com/watch?v=X2Wr4TtMG6Q
+    // Hooking up page control with scroll view: https://www.youtube.com/watch?v=AgUubgI-ZjI
 
 }
 
