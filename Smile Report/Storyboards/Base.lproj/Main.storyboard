@@ -136,8 +136,8 @@ days</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBP-g9-laT" userLabel="Today Value Label">
-                                        <rect key="frame" x="12" y="36" width="126" height="44"/>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="35"/>
+                                        <rect key="frame" x="31.333333333333343" y="36" width="90" height="44"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="25"/>
                                         <color key="textColor" red="0.56862745100000001" green="0.82352941180000006" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>

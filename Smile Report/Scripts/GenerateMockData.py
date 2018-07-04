@@ -19,13 +19,13 @@ def formatDayNumber(dayNumber):
 logging.getLogger().setLevel(logging.INFO)
 
 # Parameters for data generation
-smiles = ["smile_neutral", "smile_happy", "smile_sad", "smile_angry", "smile_love", "smile_excitement", "smile_suprise"]
+smiles = ["smile_neutral", "smile_happy", "smile_sad", "smile_angry", "smile_love", "smile_excitement", "smile_surpise"]
 months = ["JAN", "FEB", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUG", "SEP", "OCT", "NOV", "DEC"]
 monthDayCount = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 ###############################################################
 # CHANGE MONTH BOOLEANS TO TRUE TO GENERATE DATA FOR THAT MONTH
 ###############################################################
-dataMonthsToGenerate = [True, True, False, False, False, False, False, False, False, False, False, False]
+dataMonthsToGenerate = [False, False, False, False, False, True, True, True, False, False, False, False]
 dataYear = "2018"
 dataEntryTime = "20:00"
 
@@ -57,7 +57,7 @@ for index, isMonthActive in enumerate(dataMonthsToGenerate):
         # for each day in the active month
         for i in range(monthDayCount[index]):
             # Append DayEntry line to fileString
-            fileString += """let"""+""" """+months[index]+"""_"""+formatDayNumber(i+1)+"""_"""+dataYear+': DayEntry(timestamp: "'+dataYear+"""-"""+formatDayNumber(index+1)+"""-"""+formatDayNumber(i+1)+""" """+dataEntryTime+'", smileEntry: '+createSmileValue()+')\n'
+            fileString += """let"""+""" """+months[index]+"""_"""+formatDayNumber(i+1)+"""_"""+dataYear+': DayEntry = DayEntry(timestamp: "'+dataYear+"""-"""+formatDayNumber(index+1)+"""-"""+formatDayNumber(i+1)+""" """+dataEntryTime+'", smileEntry: '+createSmileValue()+')\n'
             postFileString += months[index]+"""_"""+formatDayNumber(i+1)+"""_"""+dataYear+""", """
 
 # Writing to file
