@@ -28,6 +28,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     var currentMonthValue: String!
     var currentYearValue: String!
     var largestDataTypeMonthCount = 0
+    var allDataYears: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,10 +73,9 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                     self.GraphScrollView.addSubview(setupRadarChart(graphView: graphView))
                 
                 // TODO:
-                // Create graph C
+                // Create graph C - Bar Chart (Grouped Dataset for neutral/positive/negative emotion counts for each year)
                 case 2:
-                    graphView.backgroundColor = UIColor.green
-                    self.GraphScrollView.addSubview(graphView)
+                    self.GraphScrollView.addSubview(setupBarChart(graphView: graphView))
                 
                 // Shouldn't ever happen
                 default:
@@ -193,6 +193,11 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             let dayEntryMonthValue = dayEntry.timestamp[range]
             let dayEntryYearValue = dayEntry.timestamp.prefix(4)
             
+            // Check if data entry year exists in global list yet
+            if (!isYearRecorded(yearInQuestion: String(dayEntryYearValue))) {
+                allDataYears.append(String(dayEntryYearValue))
+            }
+            
             // Check if new month to reset counter
             if (dayEntryMonthValue != currentMonth) {
                 if (largestEmotionCountForRadarPos > largestDataTypeMonthCount) {
@@ -204,6 +209,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 currentMonth = String(dayEntryMonthValue)
                 largestEmotionCountForRadarPos = 0
                 largestEmotionCountForRadarNeg = 0
+                
             // Increment either positive or negative counter
             } else {
                 if (dayEntry.smileEntry.value == smile_happy.value || dayEntry.smileEntry.value == smile_love.value || dayEntry.smileEntry.value == smile_excitement.value) {
@@ -241,6 +247,9 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         chartView.innerWebColor = .white
         chartView.webAlpha = 1
         chartView.animate(xAxisDuration: 1.4, yAxisDuration: 1.4, easingOption: .easeOutBack)
+        chartView.noDataText = "No relevant smile entry data."
+        chartView.noDataTextColor = UIColor.white
+        chartView.noDataFont = UIFont(name: "Lato-Regular", size: 15.0)!
 
         
         // Xaxis Settings
@@ -379,6 +388,158 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         return negativeEmotionsForEachMonth
     }
     
+    // Setup graph C - Bar Chart (Grouped Dataset for neutral/positive/negative emotion counts for each year)
+    func setupBarChart(graphView: UIView) -> BarChartView {
+        let chartView: BarChartView = BarChartView(frame: graphView.frame)
+        chartView.isUserInteractionEnabled = false
+        
+        // Main Settings
+        // Hide bar value text
+        chartView.data?.setValueTextColor(UIColor.clear)
+        chartView.chartDescription?.enabled = false
+        
+        // Extra Settings
+        chartView.chartDescription?.enabled = false
+        chartView.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .linear)
+        chartView.noDataText = "No relevant smile entry data."
+        chartView.noDataTextColor = UIColor.white
+        chartView.noDataFont = UIFont(name: "Lato-Regular", size: 15.0)!
+        
+        // Legend Settings
+        let legend = chartView.legend
+        legend.enabled = false
+        legend.horizontalAlignment = .right
+        legend.verticalAlignment = .top
+        legend.orientation = .vertical
+        legend.drawInside = true
+        legend.yOffset = 10.0;
+        legend.xOffset = 9.0;
+        legend.yEntrySpace = 0.0;
+        legend.textColor = .white
+        legend.font = UIFont(name: "Lato-Regular", size: 10.0)!
+        
+        // xAxis Settings
+        let xAxis = chartView.xAxis
+        //xAxis.valueFormatter = axisFormatDelegate
+        xAxis.drawGridLinesEnabled = true
+        xAxis.labelPosition = .bottom
+        xAxis.gridColor = .white
+        xAxis.centerAxisLabelsEnabled = true
+        xAxis.labelFont = UIFont(name: "Lato-Regular", size: 15.0)!
+        xAxis.labelTextColor = .white
+        xAxis.valueFormatter = IndexAxisValueFormatter(values: allDataYears)
+        xAxis.granularity = 1
+        
+        // leftAxis and rightAxis Settings
+        let leftAxisFormatter = NumberFormatter()
+        leftAxisFormatter.maximumFractionDigits = 1
+        chartView.rightAxis.enabled = false
+        
+        // yAxis Settings
+        let yAxis = chartView.leftAxis
+        yAxis.spaceTop = 0.35
+        yAxis.axisMinimum = 0
+        yAxis.gridColor = .white
+        yAxis.labelTextColor = .white
+        yAxis.labelFont = UIFont(name: "Lato-Regular", size: 15.0)!
+        yAxis.drawGridLinesEnabled = false
+        
+        // Data Configuration
+        var dataEntriesPositive: [BarChartDataEntry] = []
+        var dataEntriesNegative: [BarChartDataEntry] = []
+        var dataEntriesNeutral: [BarChartDataEntry] = []
+        var yearlyCountData = getDataPointValuesForGraphC()
+        var yearlyPositiveCount = yearlyCountData[0] // [# of pos emotions for year 1, # of pos emotions for year 2, etc..]
+        var yearlyNegativeCount = yearlyCountData[1] // [# of neg emotions for year 1, # of neg emotions for year 2, etc..]
+        var yearlyNeutralCount = yearlyCountData[2]  // [# of neu emotions for year 1, # of neu emotions for year 2, etc..]
+        
+        for i in 0..<allDataYears.count {
+            
+            // Data entry for positive emotions
+            let dataEntryPositive = BarChartDataEntry(x: Double(i) , y: Double(yearlyPositiveCount[i]))
+            dataEntriesPositive.append(dataEntryPositive)
+            
+            // Data entry for negative emotions
+            let dataEntryNegative = BarChartDataEntry(x: Double(i) , y: Double(yearlyNegativeCount[i]))
+            dataEntriesNegative.append(dataEntryNegative)
+            
+            // Data entry for neutral emotions
+            let dataEntryNeutral = BarChartDataEntry(x: Double(i) , y: Double(yearlyNeutralCount[i]))
+            dataEntriesNeutral.append(dataEntryNeutral)
+        }
+        
+        let chartDataSetPositive = BarChartDataSet(values: dataEntriesPositive, label: "Positive Emotions")
+        let chartDataSetNegative = BarChartDataSet(values: dataEntriesNegative, label: "Negative Emotions")
+        let chartDataSetNeutral  = BarChartDataSet(values: dataEntriesNeutral, label: "Neutral Emotions")
+        
+        let dataSets: [BarChartDataSet] = [chartDataSetPositive, chartDataSetNegative, chartDataSetNeutral]
+        chartDataSetPositive.colors = [UIColor(red: 50/255, green: 255/255, blue: 50/255, alpha: 0.85)]
+        chartDataSetNegative.colors = [UIColor(red: 255/255, green: 50/255, blue: 50/255, alpha: 0.85)]
+        chartDataSetNeutral.colors  = [UIColor(red: 50/255, green: 50/255, blue: 255/255, alpha: 0.85)]
+        
+        let chartData = BarChartData(dataSets: dataSets)
+        
+        // (groupSpace * barSpace) * n + groupSpace = 1
+        // (0.2 + 0.03) * 3 + 0.08 = 1.00 -> interval per "group"
+        let groupSpace = 0.2
+        let barSpace = 0.03
+        let barWidth = 0.24
+        
+        let groupCount = allDataYears.count
+        let startYear = 0
+        
+        chartData.barWidth = barWidth
+        chartView.xAxis.axisMinimum = Double(startYear)
+        let gg = chartData.groupWidth(groupSpace: groupSpace, barSpace: barSpace)
+        chartView.xAxis.axisMaximum = Double(startYear) + gg * Double(groupCount)
+        chartData.groupBars(fromX: Double(startYear), groupSpace: groupSpace, barSpace: barSpace)
+        
+        chartView.data = chartData
+        
+        // Hide bar value text
+        chartView.data?.setValueTextColor(UIColor.clear)
+        
+        // Return completed Group Data Bar Chart
+        return chartView
+    }
+    
+    // Get data point values for graph C - Bar Chart (Grouped Dataset for neutral/positive/negative emotion counts for each year)
+    func getDataPointValuesForGraphC() -> [[Int]] {
+        var yearlyCountData = Array(repeating: Array(repeating: 0, count: allDataYears.count), count: 3)
+        
+        // For each year in the dataYear group
+        for (index, year) in allDataYears.enumerated() {
+            
+            // Look through all data entries
+            for dayEntry in dayEntryData {
+                
+                // Pull out year substrings from data entry timestamp
+                let dayEntryYearValue = dayEntry.timestamp.prefix(4)
+                
+                // Check if dataEntry is in the year we are looking at
+                if (year == String(dayEntryYearValue)) {
+                    
+                    // Check if emotion is positive
+                    if (dayEntry.smileEntry.value == smile_happy.value || dayEntry.smileEntry.value == smile_love.value || dayEntry.smileEntry.value == smile_excitement.value) {
+                        yearlyCountData[0][index] += 1
+                    }
+                    
+                    // Check if emotion is negative
+                    if (dayEntry.smileEntry.value == smile_sad.value || dayEntry.smileEntry.value == smile_angry.value) {
+                        yearlyCountData[1][index] += 1
+                    }
+                    
+                    // Check if emotion is neutral
+                    if (dayEntry.smileEntry.value == smile_neutral.value || dayEntry.smileEntry.value == smile_surpise.value) {
+                        yearlyCountData[2][index] += 1
+                    }
+                }
+            }
+        }
+        
+        return yearlyCountData
+    }
+    
     // Daily notification requester
     func dailyNotificationRequester() {
         // timeInterval is in seconds, so 60*60*12*3 = 3 days, set repeats to true if you want to repeat the trigger
@@ -458,6 +619,17 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         // Setting outlet values
         CurrentWeekdayNameLabel.text = currentWeekday
         CurrentDateLabel.text = currentMonth + "/" + currentDay + "/" + currentYear
+    }
+    
+    // Check if year is already in data entry years list
+    func isYearRecorded(yearInQuestion: String) -> Bool {
+        // Check if year is in list
+        for year in allDataYears {
+            if (year == yearInQuestion) {
+                return true
+            }
+        }
+        return false
     }
     
     // userDefaults custom data type storage: https:\\stackoverflow.com/questions/37980432/swift-3-saving-and-retrieving-custom-object-from-userdefaults
