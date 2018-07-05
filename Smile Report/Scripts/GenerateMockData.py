@@ -25,7 +25,7 @@ monthDayCount = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 ###############################################################
 # CHANGE MONTH BOOLEANS TO TRUE TO GENERATE DATA FOR THAT MONTH
 ###############################################################
-dataMonthsToGenerate = [False, False, False, False, False, True, True, True, False, False, False, False]
+dataMonthsToGenerate = [True, True, True, True, True, True, True, True, True, True, True, True]
 dataYear = "2018"
 dataEntryTime = "20:00"
 

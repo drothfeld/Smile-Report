@@ -27,6 +27,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     let numberOfGraphs = 3
     var currentMonthValue: String!
     var currentYearValue: String!
+    var largestDataTypeMonthCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,19 +62,22 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             let graphView = UIView(frame: frame)
             // Creating graphs for each view
             switch index {
-                // Create graph A - Horizontal Bar Chart (Monthly)
+                
+                // Create graph A - Horizontal Bar Chart (Current Month)
                 case 0:
                     self.GraphScrollView.addSubview(setupHorizontalBarChart(graphView: graphView))
-                // TODO:
-                // Create graph B
+                
+                // Create graph B - Radar Chart (Cumulative positive/negative smiles during seasons/months)
                 case 1:
-                    graphView.backgroundColor = UIColor.black
-                    self.GraphScrollView.addSubview(graphView)
+                    self.GraphScrollView.addSubview(setupRadarChart(graphView: graphView))
+                
                 // TODO:
                 // Create graph C
                 case 2:
                     graphView.backgroundColor = UIColor.green
                     self.GraphScrollView.addSubview(graphView)
+                
+                // Shouldn't ever happen
                 default:
                     self.GraphScrollView.addSubview(UIView(frame: frame))
                     NSLog("Failed to generate graph, index out of bounds of expected values. Try updating 'numberOfGraphs'")
@@ -89,7 +93,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         PageControl.currentPage = Int(pageNumber)
     }
     
-    // Setup graph A - Horizontal Bar Chart (Monthly)
+    // Setup graph A - Horizontal Bar Chart (Current Month)
     func setupHorizontalBarChart(graphView: UIView) -> HorizontalBarChartView {
         let chartView: HorizontalBarChartView = HorizontalBarChartView(frame: graphView.frame)
         chartView.isUserInteractionEnabled = false
@@ -143,7 +147,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         
         // Data Configuration
         var dataEntries: [BarChartDataEntry] = []
-        let dataPoints = ["Neutral", "Happy", "Sad", "Angry", "Love", "Excitement", "Suprise"]
+        let dataPoints = ["Neutral", "Happy", "Sad", "Angry", "Love", "Excitement", "Surprise"]
         let values = getDataPointValuesForGraphA()
         
         chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
@@ -171,6 +175,9 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     // Get data point values for graph A - Horizontal Bar Chart (Monthly)
     func getDataPointValuesForGraphA() -> [Double] {
         var values = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        var largestEmotionCountForRadarPos = 0
+        var largestEmotionCountForRadarNeg = 0
+        var currentMonth = "01"
         
         // Get the current month
         if (Int(currentMonthValue)! < 10) {
@@ -186,6 +193,27 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             let dayEntryMonthValue = dayEntry.timestamp[range]
             let dayEntryYearValue = dayEntry.timestamp.prefix(4)
             
+            // Check if new month to reset counter
+            if (dayEntryMonthValue != currentMonth) {
+                if (largestEmotionCountForRadarPos > largestDataTypeMonthCount) {
+                    largestDataTypeMonthCount = largestEmotionCountForRadarPos
+                }
+                if (largestEmotionCountForRadarPos > largestDataTypeMonthCount) {
+                    largestDataTypeMonthCount = largestEmotionCountForRadarNeg
+                }
+                currentMonth = String(dayEntryMonthValue)
+                largestEmotionCountForRadarPos = 0
+                largestEmotionCountForRadarNeg = 0
+            // Increment either positive or negative counter
+            } else {
+                if (dayEntry.smileEntry.value == smile_happy.value || dayEntry.smileEntry.value == smile_love.value || dayEntry.smileEntry.value == smile_excitement.value) {
+                    largestEmotionCountForRadarPos += 1
+                }
+                if (dayEntry.smileEntry.value == smile_sad.value || dayEntry.smileEntry.value == smile_angry.value) {
+                    largestEmotionCountForRadarNeg += 1
+                }
+            }
+            
             // Check if data entry is from the current year and month
             if (dayEntryYearValue == currentYearValue && dayEntryMonthValue == currentMonthValue) {
                 // Increment values based on smile type in data entry
@@ -195,6 +223,160 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         
         // Return completed data point values array
         return values
+    }
+    
+    // Create graph B - Radar Chart (Cumulative positive/negative smiles during seasons/months)
+    func setupRadarChart(graphView: UIView) -> RadarChartView {
+        let chartView: RadarChartView = RadarChartView(frame: graphView.frame)
+        chartView.isUserInteractionEnabled = false
+        
+        // Main Settings
+        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]
+        
+        // Extra Settings
+        chartView.chartDescription?.enabled = false
+        chartView.webLineWidth = 1
+        chartView.innerWebLineWidth = 1
+        chartView.webColor = .white
+        chartView.innerWebColor = .white
+        chartView.webAlpha = 1
+        chartView.animate(xAxisDuration: 1.4, yAxisDuration: 1.4, easingOption: .easeOutBack)
+
+        
+        // Xaxis Settings
+        let xAxis = chartView.xAxis
+        xAxis.labelFont = UIFont(name: "Lato-Regular", size: 15.0)!
+        xAxis.labelPosition = XAxis.LabelPosition(rawValue: 1)!
+        xAxis.xOffset = 0
+        xAxis.yOffset = 0
+        xAxis.labelTextColor = .white
+        xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+        xAxis.granularity = 1.0
+        
+        // yAxis Settings
+        let yAxis = chartView.yAxis
+        yAxis.labelFont = UIFont(name: "Lato-Regular", size: 15.0)!
+        yAxis.labelCount = 5
+        yAxis.axisMinimum = 0
+        yAxis.axisMaximum = Double(largestDataTypeMonthCount) // Graph Maximum Value Range
+        yAxis.drawLabelsEnabled = false
+        
+        // Legend Settings
+        let l = chartView.legend
+        l.horizontalAlignment = .center
+        l.verticalAlignment = .top
+        l.orientation = .horizontal
+        l.drawInside = false
+        l.font = UIFont(name: "Lato-Regular", size: 15.0)!
+        l.xEntrySpace = 7
+        l.yEntrySpace = 5
+        l.textColor = .white
+        l.enabled = false
+        
+        // Data Configuration
+        var dataEntriesPos: [RadarChartDataEntry] = []
+        var dataEntriesNeg: [RadarChartDataEntry] = []
+        let valuesPos = getDataPointValuesPosForGraphB()
+        let valuesNeg = getDataPointValuesNegForGraphB()
+        
+        for i in 0..<months.count {
+            let dataEntryPos = RadarChartDataEntry(value: valuesPos[i])
+            let dataEntryNeg = RadarChartDataEntry(value: valuesNeg[i])
+            dataEntriesPos.append(dataEntryPos)
+            dataEntriesNeg.append(dataEntryNeg)
+        }
+        
+        // Positive emotions
+        let set1 = RadarChartDataSet(values: dataEntriesPos, label: "Positive Emotions")
+        set1.setColor(.green)
+        set1.fillColor = UIColor.green
+        set1.drawFilledEnabled = true
+        set1.fillAlpha = 0.7
+        set1.lineWidth = 2
+        set1.drawHighlightCircleEnabled = true
+        set1.setDrawHighlightIndicators(false)
+        
+        // Negative emotions
+        let set2 = RadarChartDataSet(values: dataEntriesNeg, label: "Negative Emotions")
+        set2.setColor(.red)
+        set2.fillColor = UIColor.red
+        set2.drawFilledEnabled = true
+        set2.fillAlpha = 0.7
+        set2.lineWidth = 2
+        set2.drawHighlightCircleEnabled = true
+        set2.setDrawHighlightIndicators(false)
+        
+        let data = RadarChartData(dataSets: [set1, set2])
+        data.setValueFont(UIFont(name: "Lato-Regular", size: 20.0)!)
+        data.setDrawValues(false)
+        data.setValueTextColor(.white)
+        
+        chartView.data = data
+        
+        // Return completed Radar Chart
+        return chartView
+    }
+    
+    // Get Pos data point values for graph B Radar Chart (Cumulative positive/negative smiles during seasons/months)
+    func getDataPointValuesPosForGraphB() -> [Double] {
+        var positiveEmotionsForEachMonth = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ,0.0]
+        
+        // Look through all data entries
+        for dayEntry in dayEntryData {
+            // Pull out month and year substrings from data entry timestamp
+            let start = dayEntry.timestamp.index(dayEntry.timestamp.startIndex, offsetBy: 5)
+            let end = dayEntry.timestamp.index(dayEntry.timestamp.endIndex, offsetBy: -9)
+            let range = start..<end
+            var dayEntryMonthValue = dayEntry.timestamp[range]
+            let dayEntryYearValue = dayEntry.timestamp.prefix(4)
+            
+            // Check for leading zero on month value to prevent casting error
+            if (dayEntryMonthValue.prefix(1) == "0") {
+                dayEntryMonthValue = dayEntryMonthValue.dropFirst()
+            }
+            
+            // Check if data entry is from the current year
+            if (dayEntryYearValue == currentYearValue) {
+                // Increment positiveEmotionsForEachMonth based on smile type in data entry
+                    if (dayEntry.smileEntry.value == smile_happy.value || dayEntry.smileEntry.value == smile_love.value || dayEntry.smileEntry.value == smile_excitement.value) {
+                        positiveEmotionsForEachMonth[Int(dayEntryMonthValue)! - 1] += 1.0
+                    }
+            }
+        }
+        
+        // Return completed data point values array
+        return positiveEmotionsForEachMonth
+    }
+    
+    // Get Neg data point values for graph B Radar Chart (Cumulative positive/negative smiles during seasons/months)
+    func getDataPointValuesNegForGraphB() -> [Double] {
+        var negativeEmotionsForEachMonth = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ,0.0]
+        
+        // Look through all data entries
+        for dayEntry in dayEntryData {
+            // Pull out month and year substrings from data entry timestamp
+            let start = dayEntry.timestamp.index(dayEntry.timestamp.startIndex, offsetBy: 5)
+            let end = dayEntry.timestamp.index(dayEntry.timestamp.endIndex, offsetBy: -9)
+            let range = start..<end
+            var dayEntryMonthValue = dayEntry.timestamp[range]
+            let dayEntryYearValue = dayEntry.timestamp.prefix(4)
+            
+            // Check for leading zero on month value to prevent casting error
+            if (dayEntryMonthValue.prefix(1) == "0") {
+                dayEntryMonthValue = dayEntryMonthValue.dropFirst()
+            }
+            
+            // Check if data entry is from the current year
+            if (dayEntryYearValue == currentYearValue) {
+                // Increment negativeEmotionsForEachMonth based on smile type in data entry
+                if (dayEntry.smileEntry.value == smile_sad.value || dayEntry.smileEntry.value == smile_angry.value) {
+                    negativeEmotionsForEachMonth[Int(dayEntryMonthValue)! - 1] += 1.0
+                }
+            }
+        }
+        
+        // Return completed data point values array
+        return negativeEmotionsForEachMonth
     }
     
     // Daily notification requester
