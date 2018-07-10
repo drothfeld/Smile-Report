@@ -18,9 +18,11 @@ class NewDayEntryViewController: UIViewController {
         interfaceSetup()
     }
     
+    // Change any interface settings
     func interfaceSetup() {
     }
     
+    // Create timestamp as string
     func createTimestamp() -> String {
         // Date in format: "2018-06-25 09:04"
         let now = Date()
@@ -29,5 +31,17 @@ class NewDayEntryViewController: UIViewController {
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         let dateString = formatter.string(from: now)
         return dateString
+    }
+    
+    // User presses a smile button
+    @IBAction func emotionButtonPressed(sender: AnyObject) {
+        guard let button = sender as? UIButton else {
+            return
+        }
+        // Create dayEntry object and values
+        let chosenSmile: Smile = smiles[button.tag]
+        let timestamp: String = createTimestamp()
+        let dayEntry: DayEntry = DayEntry(timestamp: timestamp, smileEntry: chosenSmile)
+        
     }
 }

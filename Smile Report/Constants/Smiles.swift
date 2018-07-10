@@ -19,3 +19,5 @@ let smile_love = Smile(value: 4)
 let smile_excitement = Smile(value: 5)
 
 let smile_surpise = Smile(value: 6)
+
+let smiles = [smile_neutral, smile_happy, smile_sad, smile_angry, smile_love, smile_excitement, smile_surpise]

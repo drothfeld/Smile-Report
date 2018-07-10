@@ -224,6 +224,7 @@ days</string>
         <!--New Day Entry View Controller-->
         <scene sceneID="YSK-MY-09O">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NNr-Gf-MHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="SbM-Is-18U" customClass="NewDayEntryViewController" customModule="Smile_Report" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N5Q-Qm-ISi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -233,18 +234,100 @@ days</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How Is Your Day Going?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS5-Au-wru" userLabel="Header Label">
+                                <rect key="frame" x="0.0" y="79" width="375" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="30"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-a2-YlD" userLabel="Emotion Buttons View">
+                                <rect key="frame" x="0.0" y="170" width="375" height="608"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.80000000000000004" tag="1" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQf-gT-y5g" userLabel="Smile Button">
+                                        <rect key="frame" x="50" y="20" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label="0"/>
+                                        <state key="normal" backgroundImage="happy-face.png"/>
+                                        <connections>
+                                            <action selector="emotionButtonPressedWithSender:" destination="SbM-Is-18U" eventType="touchUpInside" id="NDo-eI-Ggs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.80000000000000004" tag="2" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQ9-oy-9ks" userLabel="Sad Button">
+                                        <rect key="frame" x="235" y="20" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label="1"/>
+                                        <state key="normal" backgroundImage="sad-face.png"/>
+                                        <connections>
+                                            <action selector="emotionButtonPressedWithSender:" destination="SbM-Is-18U" eventType="touchUpInside" id="HN0-KC-eMO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.80000000000000004" tag="3" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDa-hg-eeM" userLabel="Angry Button">
+                                        <rect key="frame" x="50" y="170" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label="2"/>
+                                        <state key="normal" backgroundImage="angry-face.png"/>
+                                        <connections>
+                                            <action selector="emotionButtonPressedWithSender:" destination="SbM-Is-18U" eventType="touchUpInside" id="8TB-z4-0f3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.80000000000000004" tag="4" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naF-Zb-mUJ" userLabel="Love Button">
+                                        <rect key="frame" x="235" y="170" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label="3"/>
+                                        <state key="normal" backgroundImage="love-face.png"/>
+                                        <connections>
+                                            <action selector="emotionButtonPressedWithSender:" destination="SbM-Is-18U" eventType="touchUpInside" id="jpK-M3-JJg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.80000000000000004" tag="5" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bxp-dB-Nj4" userLabel="Excitement Button">
+                                        <rect key="frame" x="50" y="320" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label="4"/>
+                                        <state key="normal" backgroundImage="excitement-face.png"/>
+                                        <connections>
+                                            <action selector="emotionButtonPressedWithSender:" destination="SbM-Is-18U" eventType="touchUpInside" id="cnj-dj-1Au"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.80000000000000004" tag="6" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQa-SB-Q1Z" userLabel="Surprise Button">
+                                        <rect key="frame" x="235" y="320" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label="5"/>
+                                        <state key="normal" backgroundImage="surprise-face.png"/>
+                                        <connections>
+                                            <action selector="emotionButtonPressedWithSender:" destination="SbM-Is-18U" eventType="touchUpInside" id="krO-Hl-RAT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjJ-pm-Hsb" userLabel="Neutral Button">
+                                        <rect key="frame" x="142" y="466" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label="6"/>
+                                        <state key="normal" backgroundImage="neutral-face.png"/>
+                                        <connections>
+                                            <action selector="emotionButtonPressedWithSender:" destination="SbM-Is-18U" eventType="touchUpInside" id="WWj-mV-2Ho"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hS0-bE-H4c"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NNr-Gf-MHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815" y="35"/>
+            <point key="canvasLocation" x="813.60000000000002" y="34.729064039408868"/>
         </scene>
     </scenes>
     <resources>
+        <image name="angry-face.png" width="144" height="144"/>
+        <image name="excitement-face.png" width="144" height="144"/>
+        <image name="happy-face.png" width="144" height="144"/>
         <image name="home-background.png" width="1125" height="2436"/>
         <image name="how-was-your-day-button.png" width="500" height="500"/>
+        <image name="love-face.png" width="144" height="144"/>
+        <image name="neutral-face.png" width="144" height="144"/>
+        <image name="sad-face.png" width="144" height="144"/>
+        <image name="surprise-face.png" width="144" height="144"/>
     </resources>
 </document>
