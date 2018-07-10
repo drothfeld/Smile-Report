@@ -27,6 +27,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     let numberOfGraphs = 3
     var currentMonthValue: String!
     var currentYearValue: String!
+    var currentDayValue: String!
     var largestDataTypeMonthCount = 0
     var allDataYears: [String] = []
 
@@ -41,8 +42,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         // Update summary panels
         setDate()
         setDataStatistics()
-        setStatusMessage()
         setupGraphScrollControl()
+        setStatusMessage()
         dailyNotificationRequester()
     }
     
@@ -72,7 +73,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 case 1:
                     self.GraphScrollView.addSubview(setupRadarChart(graphView: graphView))
                 
-                // TODO:
                 // Create graph C - Bar Chart (Grouped Dataset for neutral/positive/negative emotion counts for each year)
                 case 2:
                     self.GraphScrollView.addSubview(setupBarChart(graphView: graphView))
@@ -186,12 +186,26 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         
         // Look through all data entries
         for dayEntry in dayEntryData {
-            // Pull out month and year substrings from data entry timestamp
-            let start = dayEntry.timestamp.index(dayEntry.timestamp.startIndex, offsetBy: 5)
-            let end = dayEntry.timestamp.index(dayEntry.timestamp.endIndex, offsetBy: -9)
-            let range = start..<end
-            let dayEntryMonthValue = dayEntry.timestamp[range]
+            
+            // Pull out day substring from data entry timestamp
+            let startDay = dayEntry.timestamp.index(dayEntry.timestamp.startIndex, offsetBy: 8)
+            let endDay = dayEntry.timestamp.index(dayEntry.timestamp.endIndex, offsetBy: -6)
+            let rangeDay = startDay..<endDay
+            let dayEntryDayValue = dayEntry.timestamp[rangeDay]
+            
+            // Pull out month substring from data entry timestamp
+            let startMonth = dayEntry.timestamp.index(dayEntry.timestamp.startIndex, offsetBy: 5)
+            let endMonth = dayEntry.timestamp.index(dayEntry.timestamp.endIndex, offsetBy: -9)
+            let rangeMonth = startMonth..<endMonth
+            let dayEntryMonthValue = dayEntry.timestamp[rangeMonth]
+            
+            // Pull out year substring from data entry timestamp
             let dayEntryYearValue = dayEntry.timestamp.prefix(4)
+            
+            // Check if a data entry has been made for the current day/month/year
+            if (dayEntryDayValue == currentDayValue && dayEntryMonthValue == currentMonthValue && dayEntryYearValue == currentYearValue) {
+                dataPointEnteredToday = true
+            }
             
             // Check if data entry year exists in global list yet
             if (!isYearRecorded(yearInQuestion: String(dayEntryYearValue))) {
@@ -569,8 +583,10 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     func setStatusMessage() {
         if (dataPointEnteredToday) {
             StatusMessageLabel.text = "Completed Daily Entry"
+//            StatusMessageLabel.textColor = .green
         } else {
             StatusMessageLabel.text = "Missing Daily Entry"
+//            StatusMessageLabel.textColor = .red
         }
     }
     
@@ -614,6 +630,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         let currentMonth = String(dateTimeComponents.month!) // 7
         currentMonthValue = currentMonth
         let currentDay = String(dateTimeComponents.day!) // 1
+        currentDayValue = currentDay
         let formatter = DateFormatter()
         let currentWeekday = String(formatter.weekdaySymbols[Calendar.current.component(.weekday, from: Date()) - 1])
         // Setting outlet values
@@ -630,6 +647,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             }
         }
         return false
+    }
+    
+    // User presses the addDataPoint button
+    @IBAction func addDataPointButtonPressed(_ sender: Any) {
+        // Check if the user has already entered data today
+        if (dataPointEnteredToday) {
+            setStatusMessage()
+        } else {
+            performSegue(withIdentifier: "addDataPoint", sender: self)
+        }
     }
     
     // userDefaults custom data type storage: https:\\stackoverflow.com/questions/37980432/swift-3-saving-and-retrieving-custom-object-from-userdefaults

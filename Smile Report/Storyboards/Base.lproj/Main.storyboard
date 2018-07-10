@@ -48,6 +48,9 @@
                                     <constraint firstAttribute="width" constant="75" id="yol-fd-CoT"/>
                                 </constraints>
                                 <state key="normal" image="how-was-your-day-button.png"/>
+                                <connections>
+                                    <action selector="addDataPointButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7g6-OK-OQz"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAh-T9-JeJ">
                                 <rect key="frame" x="16" y="646" width="343" height="30"/>
@@ -211,11 +214,33 @@ days</string>
                         <outlet property="PositiveDaysValueLabel" destination="Dgm-HO-vKn" id="Czt-dY-Bzh"/>
                         <outlet property="StatusMessageLabel" destination="rAh-T9-JeJ" id="OcA-Fm-V15"/>
                         <outlet property="TotalDataPointsValueLabel" destination="NWF-yx-gK4" id="cUk-og-qgq"/>
+                        <segue destination="SbM-Is-18U" kind="showDetail" identifier="addDataPoint" id="zG1-By-ogo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="35.467980295566505"/>
+        </scene>
+        <!--New Day Entry View Controller-->
+        <scene sceneID="YSK-MY-09O">
+            <objects>
+                <viewController id="SbM-Is-18U" customClass="NewDayEntryViewController" customModule="Smile_Report" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N5Q-Qm-ISi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="POJ-au-YaM" userLabel="Background Image">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="hS0-bE-H4c"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NNr-Gf-MHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815" y="35"/>
         </scene>
     </scenes>
     <resources>
