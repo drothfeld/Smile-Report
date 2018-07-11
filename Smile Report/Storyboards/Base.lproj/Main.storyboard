@@ -325,7 +325,7 @@ days</string>
         <scene sceneID="Rt5-hP-xMM">
             <objects>
                 <viewController id="IbN-wV-3hF" customClass="CompletedDataEntryViewController" customModule="Smile_Report" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="heU-G5-O1Y" userLabel="View" customClass="Completed">
+                    <view key="view" contentMode="scaleToFill" id="heU-G5-O1Y" userLabel="View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -342,6 +342,9 @@ days</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iux-7n-pyr"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="completedToHome" id="aMY-Hm-HVS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjr-8M-gUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
