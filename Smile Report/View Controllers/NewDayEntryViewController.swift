@@ -12,6 +12,7 @@ class NewDayEntryViewController: UIViewController {
     // Storyboard Outlets
     
     // Controller Values
+    var chosenSmile: Smile! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +34,30 @@ class NewDayEntryViewController: UIViewController {
         return dateString
     }
     
+    // Prepare segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCompletedDataEntry" {
+            let controller = segue.destination as! CompletedDataEntryViewController
+            controller.chosenSmile = chosenSmile
+        }
+    }
+    
     // User presses a smile button
     @IBAction func emotionButtonPressed(sender: AnyObject) {
         guard let button = sender as? UIButton else {
             return
         }
         // Create dayEntry object and values
-        let chosenSmile: Smile = smiles[button.tag]
+        chosenSmile = smiles[button.tag]
         let timestamp: String = createTimestamp()
-        let dayEntry: DayEntry = DayEntry(timestamp: timestamp, smileEntry: chosenSmile)
+        let dayEntry: DayEntry = DayEntry(timestamp: timestamp, smileEntry: chosenSmile!)
+        
+        // TODO:
+        // Save dayEntry object into main data stream
+        
+        
+        // Segue to CompletedDataEntryViewController, passing the chosen smile
+        performSegue(withIdentifier: "toCompletedDataEntry", sender: self)
         
     }
 }

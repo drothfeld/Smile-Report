@@ -314,9 +314,38 @@ days</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hS0-bE-H4c"/>
                     </view>
+                    <connections>
+                        <segue destination="IbN-wV-3hF" kind="showDetail" identifier="toCompletedDataEntry" id="cXO-kV-j4M"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="813.60000000000002" y="34.729064039408868"/>
+        </scene>
+        <!--Completed Data Entry View Controller-->
+        <scene sceneID="Rt5-hP-xMM">
+            <objects>
+                <viewController id="IbN-wV-3hF" customClass="CompletedDataEntryViewController" customModule="Smile_Report" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="heU-G5-O1Y" userLabel="View" customClass="Completed">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="YK4-GF-s2C" userLabel="Background Image">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YK4-GF-s2C" firstAttribute="top" secondItem="heU-G5-O1Y" secondAttribute="top" id="Aeg-B5-p7h"/>
+                            <constraint firstItem="YK4-GF-s2C" firstAttribute="leading" secondItem="iux-7n-pyr" secondAttribute="leading" id="dDR-02-RHi"/>
+                            <constraint firstItem="YK4-GF-s2C" firstAttribute="trailing" secondItem="iux-7n-pyr" secondAttribute="trailing" id="j0G-7A-OCn"/>
+                            <constraint firstAttribute="bottom" secondItem="YK4-GF-s2C" secondAttribute="bottom" id="qUR-9a-dFy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iux-7n-pyr"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yjr-8M-gUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1607" y="35"/>
         </scene>
     </scenes>
     <resources>
