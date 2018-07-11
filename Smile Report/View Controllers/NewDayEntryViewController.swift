@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class NewDayEntryViewController: UIViewController {
     // Storyboard Outlets
@@ -57,6 +58,7 @@ class NewDayEntryViewController: UIViewController {
         
         
         // Segue to CompletedDataEntryViewController, passing the chosen smile
+        AudioServicesPlaySystemSound(SystemSoundID(1022))
         performSegue(withIdentifier: "toCompletedDataEntry", sender: self)
         
     }

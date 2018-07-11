@@ -10,6 +10,8 @@ import UIKit
 
 class CompletedDataEntryViewController: UIViewController {
     // Storyboard Outlets
+    @IBOutlet weak var ChosenSmileImage: UIImageView!
+    @IBOutlet weak var ChosenSmileNameLabel: UILabel!
     
     // Controller Values
     var chosenSmile: Smile! = nil
@@ -24,6 +26,8 @@ class CompletedDataEntryViewController: UIViewController {
     
     // Change any interface settings
     func interfaceSetup() {
+        ChosenSmileImage.image = chosenSmile.image
+        ChosenSmileNameLabel.text = chosenSmile.name
     }
     
     // Segue back to home after timer expires

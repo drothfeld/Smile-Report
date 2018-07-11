@@ -23,37 +23,37 @@ class Smile {
             // Neutral
             case 0:
                 self.name = "Neutral"
-                self.image = nil
+                self.image = #imageLiteral(resourceName: "neutral-face.png")
             
             // Happy
             case 1:
                 self.name = "Happy"
-                self.image = nil
+                self.image = #imageLiteral(resourceName: "happy-face.png")
             
             // Sad
             case 2:
                 self.name = "Sad"
-                self.image = nil
+                self.image = #imageLiteral(resourceName: "sad-face.png")
             
             // Angry
             case 3:
                 self.name = "Angry"
-                self.image = nil
+                self.image = #imageLiteral(resourceName: "angry-face.png")
             
             // Love
             case 4:
                 self.name = "Love"
-                self.image = nil
+                self.image = #imageLiteral(resourceName: "love-face.png")
             
             // Excitement
             case 5:
                 self.name = "Excitement"
-                self.image = nil
+                self.image = #imageLiteral(resourceName: "excitement-face.png")
             
             // Suprise
             case 6:
-                self.name = "Fear"
-                self.image = nil
+                self.name = "Surprise"
+                self.image = #imageLiteral(resourceName: "surprise-face.png")
             
             // Should never reach here
             default:

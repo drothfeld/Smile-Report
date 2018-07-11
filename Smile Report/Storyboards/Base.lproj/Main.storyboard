@@ -224,7 +224,6 @@ days</string>
         <!--New Day Entry View Controller-->
         <scene sceneID="YSK-MY-09O">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NNr-Gf-MHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="SbM-Is-18U" customClass="NewDayEntryViewController" customModule="Smile_Report" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N5Q-Qm-ISi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -318,6 +317,7 @@ days</string>
                         <segue destination="IbN-wV-3hF" kind="showDetail" identifier="toCompletedDataEntry" id="cXO-kV-j4M"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NNr-Gf-MHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="813.60000000000002" y="34.729064039408868"/>
         </scene>
@@ -332,23 +332,62 @@ days</string>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="YK4-GF-s2C" userLabel="Background Image">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Day Is Going:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uc6-qh-k0H" userLabel="Header Label">
+                                <rect key="frame" x="0.0" y="117" width="375" height="42"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="35"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dcY-qW-3MZ" userLabel="Chosen Smile Image">
+                                <rect key="frame" x="87" y="266" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="0ov-Bg-RXd"/>
+                                    <constraint firstAttribute="height" constant="200" id="F6r-fV-Nym"/>
+                                    <constraint firstAttribute="width" constant="200" id="GdE-4I-zdu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMOTION_NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOZ-qq-XvY" userLabel="Chosen Smile Name Label">
+                                <rect key="frame" x="0.0" y="484" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="xBn-7C-6Bi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="25"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Uc6-qh-k0H" firstAttribute="trailing" secondItem="iux-7n-pyr" secondAttribute="trailing" id="0FL-4P-0Vg"/>
+                            <constraint firstItem="Uc6-qh-k0H" firstAttribute="leading" secondItem="iux-7n-pyr" secondAttribute="leading" id="0FL-R8-Fyg"/>
                             <constraint firstItem="YK4-GF-s2C" firstAttribute="top" secondItem="heU-G5-O1Y" secondAttribute="top" id="Aeg-B5-p7h"/>
+                            <constraint firstItem="iux-7n-pyr" firstAttribute="trailing" secondItem="dcY-qW-3MZ" secondAttribute="trailing" constant="88" id="FtO-Eo-f09"/>
+                            <constraint firstItem="DOZ-qq-XvY" firstAttribute="leading" secondItem="Uc6-qh-k0H" secondAttribute="leading" id="UkG-SA-bkY"/>
                             <constraint firstItem="YK4-GF-s2C" firstAttribute="leading" secondItem="iux-7n-pyr" secondAttribute="leading" id="dDR-02-RHi"/>
+                            <constraint firstItem="DOZ-qq-XvY" firstAttribute="trailing" secondItem="Uc6-qh-k0H" secondAttribute="trailing" id="iBA-Lg-QCU"/>
                             <constraint firstItem="YK4-GF-s2C" firstAttribute="trailing" secondItem="iux-7n-pyr" secondAttribute="trailing" id="j0G-7A-OCn"/>
+                            <constraint firstItem="Uc6-qh-k0H" firstAttribute="top" secondItem="iux-7n-pyr" secondAttribute="top" constant="73" id="lIt-XB-xBk"/>
+                            <constraint firstItem="dcY-qW-3MZ" firstAttribute="top" secondItem="Uc6-qh-k0H" secondAttribute="bottom" constant="107" id="obw-2P-3Mu"/>
                             <constraint firstAttribute="bottom" secondItem="YK4-GF-s2C" secondAttribute="bottom" id="qUR-9a-dFy"/>
+                            <constraint firstItem="DOZ-qq-XvY" firstAttribute="top" secondItem="dcY-qW-3MZ" secondAttribute="bottom" constant="18" id="sfu-N9-Iby"/>
+                            <constraint firstItem="dcY-qW-3MZ" firstAttribute="leading" secondItem="iux-7n-pyr" secondAttribute="leading" constant="87" id="ulz-Nj-a3t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iux-7n-pyr"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="DOZ-qq-XvY"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="ChosenSmileImage" destination="dcY-qW-3MZ" id="nmV-ds-UdY"/>
+                        <outlet property="ChosenSmileNameLabel" destination="DOZ-qq-XvY" id="fdh-i3-AT1"/>
                         <segue destination="BYZ-38-t0r" kind="showDetail" identifier="completedToHome" id="aMY-Hm-HVS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjr-8M-gUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1607" y="35"/>
+            <point key="canvasLocation" x="1605.5999999999999" y="34.729064039408868"/>
         </scene>
     </scenes>
     <resources>
