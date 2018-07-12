@@ -33,6 +33,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadSmileData()
         interfaceSetup()
     }
     
@@ -656,6 +657,22 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             setStatusMessage()
         } else {
             performSegue(withIdentifier: "addDataPoint", sender: self)
+        }
+    }
+    
+    // Load userDefaults smile data
+    func loadSmileData() {
+        if let data = UserDefaults.standard.data(forKey: "dayEntryData"),
+            // Load data from userDefaults
+            let savedDayEntryData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [DayEntry] {
+                savedDayEntryData.forEach({print( $0.timestamp, $0.smileEntry.name)})
+                NSLog("\nSuccessfully loaded data from userDefaults.")
+                dayEntryData = savedDayEntryData
+        } else {
+            // TESTING ONLY:
+            // Loading mock data instead
+            NSLog("\nThere was an issue loading the data from userDefaults.\nLoading mock data instead.")
+            dayEntryData = mockData
         }
     }
     
