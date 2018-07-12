@@ -16,12 +16,18 @@ class CompletedDataEntryViewController: UIViewController {
     // Controller Values
     var chosenSmile: Smile! = nil
     var segueTimer: Timer = Timer()
-    let segueTimerValue: Double = 5.0
+    let segueTimerValue: Double = 2.5
     
     override func viewDidLoad() {
         super.viewDidLoad()
         interfaceSetup()
+        resetApplicationbadgeValue()
         startSegueTimer()
+    }
+    
+    // Reset application badge value to 0
+    func resetApplicationbadgeValue() {
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
     // Change any interface settings
