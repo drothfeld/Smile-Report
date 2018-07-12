@@ -29,6 +29,7 @@
 		B05D46C620DACE3300FE05D9 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B05D46B220DACE3300FE05D9 /* Lato-ThinItalic.ttf */; };
 		B05D46C920DACE9600FE05D9 /* home-background.png in Resources */ = {isa = PBXBuildFile; fileRef = B05D46C820DACE9600FE05D9 /* home-background.png */; };
 		B05D46CD20DAE81200FE05D9 /* how-was-your-day-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B05D46CC20DAE81200FE05D9 /* how-was-your-day-button.png */; };
+		B075547F20F8053100CA58E3 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075547E20F8053100CA58E3 /* MockData.swift */; };
 		B09C193B20D95C0200A7CE9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C193A20D95C0200A7CE9C /* AppDelegate.swift */; };
 		B09C193D20D95C0200A7CE9C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C193C20D95C0200A7CE9C /* HomeViewController.swift */; };
 		B09C194020D95C0200A7CE9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09C193E20D95C0200A7CE9C /* Main.storyboard */; };
@@ -40,7 +41,6 @@
 		B0C0265220E151110019405F /* NewDayEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C0265120E151110019405F /* NewDayEntryViewController.swift */; };
 		B0C0265720E310D80019405F /* GenerateMockData.py in Resources */ = {isa = PBXBuildFile; fileRef = B0C0265620E310D80019405F /* GenerateMockData.py */; };
 		B0DA71E820ED530800AC6AB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0DA71E720ED530800AC6AB5 /* README.md */; };
-		B0DA71EC20EDA9D400AC6AB5 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DA71EB20EDA9D400AC6AB5 /* MockData.swift */; };
 		B0DA71F420F5476900AC6AB5 /* surprise-face.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DA71ED20F5476800AC6AB5 /* surprise-face.png */; };
 		B0DA71F520F5476900AC6AB5 /* excitement-face.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DA71EE20F5476800AC6AB5 /* excitement-face.png */; };
 		B0DA71F620F5476900AC6AB5 /* love-face.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DA71EF20F5476800AC6AB5 /* love-face.png */; };
@@ -78,6 +78,7 @@
 		B05D46B220DACE3300FE05D9 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		B05D46C820DACE9600FE05D9 /* home-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-background.png"; sourceTree = "<group>"; };
 		B05D46CC20DAE81200FE05D9 /* how-was-your-day-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "how-was-your-day-button.png"; sourceTree = "<group>"; };
+		B075547E20F8053100CA58E3 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		B09C193720D95C0200A7CE9C /* Smile Report.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smile Report.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09C193A20D95C0200A7CE9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B09C193C20D95C0200A7CE9C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		B0C0265120E151110019405F /* NewDayEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDayEntryViewController.swift; sourceTree = "<group>"; };
 		B0C0265620E310D80019405F /* GenerateMockData.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = GenerateMockData.py; sourceTree = "<group>"; };
 		B0DA71E720ED530800AC6AB5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		B0DA71EB20EDA9D400AC6AB5 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		B0DA71ED20F5476800AC6AB5 /* surprise-face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surprise-face.png"; sourceTree = "<group>"; };
 		B0DA71EE20F5476800AC6AB5 /* excitement-face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "excitement-face.png"; sourceTree = "<group>"; };
 		B0DA71EF20F5476800AC6AB5 /* love-face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "love-face.png"; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				B0C0264D20DF40640019405F /* Smiles.swift */,
-				B0DA71EB20EDA9D400AC6AB5 /* MockData.swift */,
+				B075547E20F8053100CA58E3 /* MockData.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -433,8 +433,8 @@
 				B0C0264920DF3BB10019405F /* DayEntry.swift in Sources */,
 				B0C0264E20DF40640019405F /* Smiles.swift in Sources */,
 				B0C0265220E151110019405F /* NewDayEntryViewController.swift in Sources */,
+				B075547F20F8053100CA58E3 /* MockData.swift in Sources */,
 				B09C193D20D95C0200A7CE9C /* HomeViewController.swift in Sources */,
-				B0DA71EC20EDA9D400AC6AB5 /* MockData.swift in Sources */,
 				B09C193B20D95C0200A7CE9C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

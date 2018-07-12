@@ -14,6 +14,7 @@ class NewDayEntryViewController: UIViewController {
     
     // Controller Values
     var chosenSmile: Smile! = nil
+    var dayEntryData: [DayEntry] = mockData
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,15 +52,32 @@ class NewDayEntryViewController: UIViewController {
         // Create dayEntry object and values
         chosenSmile = smiles[button.tag]
         let timestamp: String = createTimestamp()
-        let dayEntry: DayEntry = DayEntry(timestamp: timestamp, smileEntry: chosenSmile!)
+        let dayEntry: DayEntry = DayEntry(timestamp: timestamp, smileEntryIndex: chosenSmile!.value!)
         
         // TODO:
         // Save dayEntry object into main data stream
-        
+        loadSmileData(dayEntry: dayEntry)
         
         // Segue to CompletedDataEntryViewController, passing the chosen smile
         AudioServicesPlaySystemSound(SystemSoundID(1022))
         performSegue(withIdentifier: "toCompletedDataEntry", sender: self)
-        
+    }
+    
+    // Load userDefaults smile data
+    func loadSmileData(dayEntry: DayEntry) {
+        if let data = UserDefaults.standard.data(forKey: "dayEntryData"),
+            // Attempt to load data from userDefaults
+            let savedDayEntryData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [DayEntry] {
+                dayEntryData = savedDayEntryData
+                dayEntryData.append(dayEntry)
+                let encodedData = NSKeyedArchiver.archivedData(withRootObject: dayEntryData)
+                UserDefaults.standard.set(encodedData, forKey: "dayEntryData")
+        } else {
+            // If there is no saved data, then create new userDefaults saved data
+            var newData: [DayEntry] = []
+            newData.append(dayEntry)
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: newData)
+            UserDefaults.standard.set(encodedData, forKey: "dayEntryData")
+        }
     }
 }

@@ -31,7 +31,7 @@ dataEntryTime = "20:00"
 
 # Returns a random smile value
 def createSmileValue():
-    return smiles[random.randint(0,6)]
+    return str(random.randint(0,6))
 
 # Create timestamp and file header for generated data
 ts = time.time()
@@ -57,7 +57,7 @@ for index, isMonthActive in enumerate(dataMonthsToGenerate):
         # for each day in the active month
         for i in range(monthDayCount[index]):
             # Append DayEntry line to fileString
-            fileString += """let"""+""" """+months[index]+"""_"""+formatDayNumber(i+1)+"""_"""+dataYear+': DayEntry = DayEntry(timestamp: "'+dataYear+"""-"""+formatDayNumber(index+1)+"""-"""+formatDayNumber(i+1)+""" """+dataEntryTime+'", smileEntry: '+createSmileValue()+')\n'
+            fileString += """let"""+""" """+months[index]+"""_"""+formatDayNumber(i+1)+"""_"""+dataYear+': DayEntry = DayEntry(timestamp: "'+dataYear+"""-"""+formatDayNumber(index+1)+"""-"""+formatDayNumber(i+1)+""" """+dataEntryTime+'", smileEntryIndex: '+createSmileValue()+')\n'
             postFileString += months[index]+"""_"""+formatDayNumber(i+1)+"""_"""+dataYear+""", """
 
 # Writing to file

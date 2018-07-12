@@ -34,6 +34,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSmileData()
+        //DEBUG_resetToMockData()
         interfaceSetup()
     }
     
@@ -227,10 +228,10 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 
             // Increment either positive or negative counter
             } else {
-                if (dayEntry.smileEntry.value == smile_happy.value || dayEntry.smileEntry.value == smile_love.value || dayEntry.smileEntry.value == smile_excitement.value) {
+                if (dayEntry.smileEntryIndex == smile_happy.value || dayEntry.smileEntryIndex == smile_love.value || dayEntry.smileEntryIndex == smile_excitement.value) {
                     largestEmotionCountForRadarPos += 1
                 }
-                if (dayEntry.smileEntry.value == smile_sad.value || dayEntry.smileEntry.value == smile_angry.value) {
+                if (dayEntry.smileEntryIndex == smile_sad.value || dayEntry.smileEntryIndex == smile_angry.value) {
                     largestEmotionCountForRadarNeg += 1
                 }
             }
@@ -238,7 +239,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             // Check if data entry is from the current year and month
             if (dayEntryYearValue == currentYearValue && dayEntryMonthValue == currentMonthValue) {
                 // Increment values based on smile type in data entry
-                values[dayEntry.smileEntry.value!] += 1.0
+                values[dayEntry.smileEntryIndex] += 1.0
             }
         }
         
@@ -362,7 +363,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             // Check if data entry is from the current year
             if (dayEntryYearValue == currentYearValue) {
                 // Increment positiveEmotionsForEachMonth based on smile type in data entry
-                    if (dayEntry.smileEntry.value == smile_happy.value || dayEntry.smileEntry.value == smile_love.value || dayEntry.smileEntry.value == smile_excitement.value) {
+                    if (dayEntry.smileEntryIndex == smile_happy.value || dayEntry.smileEntryIndex == smile_love.value || dayEntry.smileEntryIndex == smile_excitement.value) {
                         positiveEmotionsForEachMonth[Int(dayEntryMonthValue)! - 1] += 1.0
                     }
             }
@@ -393,7 +394,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             // Check if data entry is from the current year
             if (dayEntryYearValue == currentYearValue) {
                 // Increment negativeEmotionsForEachMonth based on smile type in data entry
-                if (dayEntry.smileEntry.value == smile_sad.value || dayEntry.smileEntry.value == smile_angry.value) {
+                if (dayEntry.smileEntryIndex == smile_sad.value || dayEntry.smileEntryIndex == smile_angry.value) {
                     negativeEmotionsForEachMonth[Int(dayEntryMonthValue)! - 1] += 1.0
                 }
             }
@@ -535,17 +536,17 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                 if (year == String(dayEntryYearValue)) {
                     
                     // Check if emotion is positive
-                    if (dayEntry.smileEntry.value == smile_happy.value || dayEntry.smileEntry.value == smile_love.value || dayEntry.smileEntry.value == smile_excitement.value) {
+                    if (dayEntry.smileEntryIndex == smile_happy.value || dayEntry.smileEntryIndex == smile_love.value || dayEntry.smileEntryIndex == smile_excitement.value) {
                         yearlyCountData[0][index] += 1
                     }
                     
                     // Check if emotion is negative
-                    if (dayEntry.smileEntry.value == smile_sad.value || dayEntry.smileEntry.value == smile_angry.value) {
+                    if (dayEntry.smileEntryIndex == smile_sad.value || dayEntry.smileEntryIndex == smile_angry.value) {
                         yearlyCountData[1][index] += 1
                     }
                     
                     // Check if emotion is neutral
-                    if (dayEntry.smileEntry.value == smile_neutral.value || dayEntry.smileEntry.value == smile_surpise.value) {
+                    if (dayEntry.smileEntryIndex == smile_neutral.value || dayEntry.smileEntryIndex == smile_surpise.value) {
                         yearlyCountData[2][index] += 1
                     }
                 }
@@ -598,7 +599,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         // Check for positive days days
         for dataEntry in dayEntryData {
             totalEntries += 1.00
-            if (dataEntry.smileEntry.value == smile_happy.value || dataEntry.smileEntry.value == smile_love.value || dataEntry.smileEntry.value == smile_excitement.value) {
+            if (dataEntry.smileEntryIndex == smile_happy.value || dataEntry.smileEntryIndex == smile_love.value || dataEntry.smileEntryIndex == smile_excitement.value) {
                 positiveEntries += 1.00
             }
         }
@@ -665,17 +666,29 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         if let data = UserDefaults.standard.data(forKey: "dayEntryData"),
             // Load data from userDefaults
             let savedDayEntryData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [DayEntry] {
-                savedDayEntryData.forEach({print( $0.timestamp, $0.smileEntry.name)})
                 NSLog("\nSuccessfully loaded data from userDefaults.")
                 dayEntryData = savedDayEntryData
         } else {
             // TESTING ONLY:
-            // Loading mock data instead
+            // Using mock data as baseboard for saved data
             NSLog("\nThere was an issue loading the data from userDefaults.\nLoading mock data instead.")
             dayEntryData = mockData
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: dayEntryData)
+            UserDefaults.standard.set(encodedData, forKey: "dayEntryData")
+            
+            // ACTUAL USE:
+            // Set to blank data
+            // dayEntryData = []
         }
     }
     
-    // userDefaults custom data type storage: https:\\stackoverflow.com/questions/37980432/swift-3-saving-and-retrieving-custom-object-from-userdefaults
+    // TESTING ONLY:
+    // Reset saved data to mock data
+    func DEBUG_resetToMockData() {
+        dayEntryData = mockData
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: dayEntryData)
+        UserDefaults.standard.set(encodedData, forKey: "dayEntryData")
+        NSLog("Reset saved data to mock data only.")
+    }
 }
 

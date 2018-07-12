@@ -10,24 +10,25 @@ import Foundation
 
 class DayEntry: NSObject, NSCoding {
     let timestamp: String
-    let smileEntry: Smile
+    let smileEntryIndex: Int
     
     // DayEntry initializer
-    init(timestamp: String, smileEntry: Smile) {
+    init(timestamp: String, smileEntryIndex: Int) {
         self.timestamp = timestamp
-        self.smileEntry = smileEntry
+        self.smileEntryIndex = smileEntryIndex
     }
     
     // Decoding for userdefaults
-    required init(coder decoder: NSCoder) {
-        self.timestamp = decoder.decodeObject(forKey: "timestamp") as? String ?? ""
-        self.smileEntry = (decoder.decodeObject(forKey: "smileEntry") as? Smile)!
+    required convenience init(coder decoder: NSCoder) {
+        let timestamp = decoder.decodeObject(forKey: "timestamp") as? String ?? ""
+        let smileEntryIndex = decoder.decodeInteger(forKey: "smileEntryIndex")
+        self.init(timestamp: timestamp, smileEntryIndex: smileEntryIndex)
     }
     
     // Encoding for userdefaults
     func encode(with coder: NSCoder) {
         coder.encode(timestamp, forKey: "timestamp")
-        coder.encode(smileEntry, forKey: "asmileEntryge")
+        coder.encode(smileEntryIndex, forKey: "smileEntryIndex")
     }
     
 }
