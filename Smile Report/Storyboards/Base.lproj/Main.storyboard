@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="q2Z-bD-hzk">
-                                <rect key="frame" x="167" y="327" width="40" height="40"/>
+                                <rect key="frame" x="167.66666666666666" y="327" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="aqb-8f-SR1"/>
                                     <constraint firstAttribute="height" constant="40" id="lfL-a6-7Mp"/>
@@ -96,23 +94,20 @@ days</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r07-V0-TXY" userLabel="Data Points Entered View">
                                 <rect key="frame" x="195" y="480" width="150" height="129"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Entered" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rme-bR-WZg" userLabel="Entered Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entered" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rme-bR-WZg" userLabel="Entered Label">
                                         <rect key="frame" x="0.0" y="18" width="153" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" red="0.76774428135852779" green="0.76576044600618021" blue="0.76972811671087538" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" text="data points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fa-Ug-QfO" userLabel="Data Points Label">
-                                        <rect key="frame" x="0.0" y="88" width="153" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="data points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fa-Ug-QfO" userLabel="Data Points Label">
+                                        <rect key="frame" x="0.0" y="88" width="153" height="18"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" red="0.76774428139999995" green="0.76576044600000004" blue="0.76972811669999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="54" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWF-yx-gK4" userLabel="Data Points Value Label">
-                                        <rect key="frame" x="0.0" y="34" width="150" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="54" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWF-yx-gK4" userLabel="Data Points Value Label">
+                                        <rect key="frame" x="0.0" y="34" width="150" height="61"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="50"/>
                                         <color key="textColor" red="0.56862745098039214" green="0.82352941176470584" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -120,7 +115,17 @@ days</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="NWF-yx-gK4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6fa-Ug-QfO" secondAttribute="leading" id="6n5-UA-sgb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rme-bR-WZg" secondAttribute="trailing" constant="-3" id="8KT-jO-vjY"/>
                                     <constraint firstAttribute="width" constant="150" id="9bh-fa-BCt"/>
+                                    <constraint firstItem="NWF-yx-gK4" firstAttribute="top" secondItem="r07-V0-TXY" secondAttribute="top" constant="34" id="BUx-9n-waV"/>
+                                    <constraint firstItem="NWF-yx-gK4" firstAttribute="leading" secondItem="r07-V0-TXY" secondAttribute="leading" id="CM7-z3-pfU"/>
+                                    <constraint firstItem="Rme-bR-WZg" firstAttribute="top" secondItem="r07-V0-TXY" secondAttribute="top" constant="18" id="NKo-SI-4WM"/>
+                                    <constraint firstItem="6fa-Ug-QfO" firstAttribute="top" secondItem="Rme-bR-WZg" secondAttribute="bottom" constant="52" id="OLc-tJ-0fn"/>
+                                    <constraint firstAttribute="trailing" secondItem="NWF-yx-gK4" secondAttribute="trailing" id="OUJ-sG-gV4"/>
+                                    <constraint firstItem="NWF-yx-gK4" firstAttribute="centerY" secondItem="r07-V0-TXY" secondAttribute="centerY" id="aaA-hJ-KRQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="6fa-Ug-QfO" secondAttribute="trailing" constant="-3" id="i5v-Kn-NVK"/>
+                                    <constraint firstItem="NWF-yx-gK4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rme-bR-WZg" secondAttribute="leading" id="tRB-uP-96a"/>
                                     <constraint firstAttribute="height" constant="129" id="tSm-ug-het"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -139,7 +144,7 @@ days</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBP-g9-laT" userLabel="Today Value Label">
-                                        <rect key="frame" x="31.333333333333343" y="36" width="90" height="44"/>
+                                        <rect key="frame" x="30.666666666666657" y="36" width="90" height="44"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="25"/>
                                         <color key="textColor" red="0.56862745100000001" green="0.82352941180000006" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -229,20 +234,17 @@ days</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="POJ-au-YaM" userLabel="Background Image">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="POJ-au-YaM" userLabel="Background Image">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How Is Your Day Going?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS5-Au-wru" userLabel="Header Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Is Your Day Going?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS5-Au-wru" userLabel="Header Label">
                                 <rect key="frame" x="0.0" y="79" width="375" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="30"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-a2-YlD" userLabel="Emotion Buttons View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-a2-YlD" userLabel="Emotion Buttons View">
                                 <rect key="frame" x="0.0" y="170" width="375" height="608"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.80000000000000004" tag="1" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQf-gT-y5g" userLabel="Smile Button">
                                         <rect key="frame" x="50" y="20" width="90" height="90"/>
@@ -311,6 +313,19 @@ days</string>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mHc-a2-YlD" firstAttribute="bottom" secondItem="hS0-bE-H4c" secondAttribute="bottom" id="4Da-eD-yQw"/>
+                            <constraint firstItem="yS5-Au-wru" firstAttribute="trailing" secondItem="POJ-au-YaM" secondAttribute="trailing" id="IMK-wK-9QC"/>
+                            <constraint firstItem="POJ-au-YaM" firstAttribute="top" secondItem="N5Q-Qm-ISi" secondAttribute="top" id="VFY-ce-YRo"/>
+                            <constraint firstAttribute="bottom" secondItem="POJ-au-YaM" secondAttribute="bottom" id="VQF-CA-gcJ"/>
+                            <constraint firstItem="mHc-a2-YlD" firstAttribute="top" secondItem="yS5-Au-wru" secondAttribute="bottom" constant="55" id="cB3-Uj-KHs"/>
+                            <constraint firstItem="yS5-Au-wru" firstAttribute="leading" secondItem="N5Q-Qm-ISi" secondAttribute="leading" id="fQe-kv-LuA"/>
+                            <constraint firstAttribute="trailing" secondItem="yS5-Au-wru" secondAttribute="trailing" id="gIe-ec-XH7"/>
+                            <constraint firstItem="yS5-Au-wru" firstAttribute="trailing" secondItem="mHc-a2-YlD" secondAttribute="trailing" id="qNz-cw-UgN"/>
+                            <constraint firstItem="yS5-Au-wru" firstAttribute="top" secondItem="hS0-bE-H4c" secondAttribute="top" constant="35" id="rfn-tm-XYc"/>
+                            <constraint firstItem="yS5-Au-wru" firstAttribute="leading" secondItem="POJ-au-YaM" secondAttribute="leading" id="vzA-9l-vkT"/>
+                            <constraint firstItem="yS5-Au-wru" firstAttribute="leading" secondItem="mHc-a2-YlD" secondAttribute="leading" id="xUj-kL-49i"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hS0-bE-H4c"/>
                     </view>
                     <connections>
@@ -376,6 +391,11 @@ days</string>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="DOZ-qq-XvY"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="UkG-SA-bkY"/>
+                                <exclude reference="iBA-Lg-QCU"/>
+                                <exclude reference="sfu-N9-Iby"/>
                             </mask>
                         </variation>
                     </view>

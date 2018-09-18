@@ -40,7 +40,10 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     
     func interfaceSetup() {
         // Changing status bar to white text
-        UIApplication.shared.statusBarStyle = .lightContent
+        var preferredStatusBarStyle : UIStatusBarStyle {
+            return .lightContent
+        }
+        
         // Update summary panels
         setDate()
         setDataStatistics()
@@ -566,7 +569,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         //requestContent.subtitle = "Subtitle"
         requestContent.body = "How is your day going? Don't forget to input your smile entry for the day!"
         requestContent.badge = 1
-        requestContent.sound = UNNotificationSound.default()
+        requestContent.sound = UNNotificationSound.default
         
         // Request the notification
         let request = UNNotificationRequest(identifier: "Smile Report", content: requestContent, trigger: requestTrigger)
